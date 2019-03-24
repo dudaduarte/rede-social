@@ -9,6 +9,20 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./src/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-auth.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyAQJPngODtw4msJNc1zcDJYss-kbkkrQH4",
+            authDomain: "rede-social-b3de5.firebaseapp.com",
+            databaseURL: "https://rede-social-b3de5.firebaseio.com",
+            projectId: "rede-social-b3de5",
+            storageBucket: "rede-social-b3de5.appspot.com",
+            messagingSenderId: "14655835226"
+        };
+        firebase.initializeApp(config);
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -24,7 +38,6 @@
 </head>
 
 <body>
-
     <!-- área de login -->
     <div class="container">
         <div class="row">
@@ -44,8 +57,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="login-form" action="" method="post" role="form"
-                                    style="display: block;">
+                                <form id="login-form" action="" method="post" role="form" style="display: block;">
                                     <div class="form-group df">
                                         <span><i class="far fa-envelope"></i></span>
                                         <input type="email" name="email" id="email" tabindex="1" class="input-form"
@@ -64,7 +76,8 @@
                                         <div class="row jc-c">
                                             <div class="col-sm-6 col-sm-offset-3 row jc-c">
                                                 <button type="submit" name="login-submit" id="login-submit" tabindex="4"
-                                                    class="form-btn btn-login"><i class="fas fa-chevron-right"></i></button>
+                                                    class="form-btn btn-login"><i
+                                                        class="fas fa-chevron-right"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -79,8 +92,7 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form id="register-form" action="" method="post"
-                                    role="form" style="display: none;">
+                                <form id="register-form" action="" method="post" role="form" style="display: none;">
                                     <div class="form-group">
                                         <input type="text" name="name" id="name" tabindex="1" class="input-form"
                                             placeholder="Nome" value="">
@@ -101,7 +113,8 @@
                                         <div class="row jc-c">
                                             <div class="col-sm-6 col-sm-offset-3 row jc-c">
                                                 <button type="submit" name="register-submit" id="register-submit"
-                                                    tabindex="4" class="form-btn btn-register"><i class="fas fa-chevron-right"></i></i></button>
+                                                    tabindex="4" class="form-btn btn-register"><i
+                                                        class="fas fa-chevron-right"></i></i></button>
                                             </div>
                                         </div>
                                     </div>
