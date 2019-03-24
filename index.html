@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rede Social</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./src/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- área de login -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-login">
+                    <div class="panel-heading">
+                        <div class="row sa">
+                            <div class="col-xs-6">
+                                <a href="#" class="active" id="login-form-link">Login</a>
+                            </div>
+                            <div class="col-xs-6">
+                                <a href="#" id="register-form-link">Registrar</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form id="login-form" action="http://phpoll.com/login/process" method="post" role="form"
+                                    style="display: block;">
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" tabindex="1" class="form-control"
+                                            placeholder="E-mail" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" tabindex="2"
+                                            class="form-control" placeholder="Senha">
+                                    </div>
+                                    <div class="form-group js-fe remember-password">
+                                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                                        <label for="remember">Lembrar senha</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row jc-c">
+                                            <div class="col-sm-6 col-sm-offset-3 row jc-c">
+                                                <button type="submit" name="login-submit" id="login-submit" tabindex="4"
+                                                    class="form-btn btn-login"><i class="fas fa-arrow-right"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="text-center forget-password">
+                                                    Esqueceu sua senha? <a href="http://phpoll.com/recover" tabindex="5"
+                                                        class="forgot-password">Clique aqui para recuperar</a>.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form id="register-form" action="http://phpoll.com/register/process" method="post"
+                                    role="form" style="display: none;">
+                                    <div class="form-group">
+                                        <input type="text" name="name" id="name" tabindex="1" class="form-control"
+                                            placeholder="Nome" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" tabindex="1" class="form-control"
+                                            placeholder="E-mail" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" tabindex="2"
+                                            class="form-control" placeholder="Senha">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="confirm-password" id="confirm-password"
+                                            tabindex="2" class="form-control" placeholder="Confirmar senha">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row jc-c">
+                                            <div class="col-sm-6 col-sm-offset-3 row jc-c">
+                                                <button type="submit" name="register-submit" id="register-submit"
+                                                    tabindex="4" class="form-btn btn-register"><i class="fas fa-arrow-right"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fim da área de login -->
+
+    <script src="./src/login.js"></script>
+</body>
+
+</html>
