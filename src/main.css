@@ -146,3 +146,7 @@ span i.fas, span i.far {
 .sa {
     justify-content: space-around;
 }
+
+.hidden {
+	display: none;
+}
