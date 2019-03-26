@@ -43,7 +43,6 @@ body {
 }
 .panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
 	height: 45px;
-	border: 1px solid #ddd;
 	font-size: 16px;
 	-webkit-transition: all 0.1s linear;
 	-moz-transition: all 0.1s linear;
@@ -74,8 +73,35 @@ body {
     text-align: left;
 }
 
-.fa-arrow-right {
-    font-size: 2em;
+.df {
+    display: flex;
+}
+
+.fa-chevron-right {
+    font-size: 2.2em;
+}
+
+span i.fas, span i.far {
+    padding: 5px;
+    color: #ced4da;
+}
+
+.form-group {
+    align-items: center;
+}
+
+.input-form {
+    border: none;
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    outline: none;
+    border-bottom: 1px solid #ced4da;
 }
 
 .form-btn {
@@ -88,16 +114,14 @@ body {
     box-shadow: 0 2px 8px #d2d2d2;
     -moz-box-shadow: 0 2px 8px #d2d2d2;
     -webkit-box-shadow: 0 2px 8px #d2d2d2;
-}
-
-.btn-login {
-	outline: none;
-	color: #fff;
-	font-size: 14px;
-	font-weight: normal;
-	padding: 14px;
+    text-align: center;
+    font-size: 14px;
+    padding: 14px;
+    outline: none;
+    font-weight: normal;
 	text-transform: uppercase;
 }
+
 .btn-login:hover,
 .btn-login:focus {
 	color: #fff;
@@ -113,14 +137,6 @@ body {
 	color: #666;
 }
 
-.btn-register {
-	outline: none;
-	color: #fff;
-	font-size: 14px;
-	font-weight: normal;
-	padding: 14px;
-	text-transform: uppercase;
-}
 .btn-register:hover,
 .btn-register:focus {
 	color: #fff;
