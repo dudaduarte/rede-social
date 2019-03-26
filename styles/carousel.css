@@ -1,0 +1,48 @@
+
+.body {
+  width: 100%;
+  height: 100%;
+  background-color: #984BDC;
+}
+
+.background-icon-yellow {
+  width: 40%;
+}
+
+.background-icon-pink {
+  margin-left: 3rem;
+  width: 20%;
+}
+
+.background-icon-green {
+  width: 30%;
+  margin-left: -15%;
+  margin-top: 50%;
+}
+
+.background-icon-blue {
+  width: 40%;
+}
+
+.carousel-text {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+}
+
+.control-carousel {
+  margin-bottom: 5rem;
+}
+
+.carousel-inner img {
+  height: auto;
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+}
+
+
+
+
+
+
+
