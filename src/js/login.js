@@ -38,6 +38,7 @@
    
    firebase.auth().signInWithEmailAndPassword(email, password)
    .then(function () {
+    window.location='feed.html';
      alert('Bem-vindo')
      $('#logged-in').removeClass('hidden');
      $('#login').addClass('hidden'); 
@@ -62,6 +63,7 @@
    if (password === newUserConfirmPass) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(function () {
+      window.location='feed.html';
       alert(`Bem-vindo ${newUserName}`)
       $('#logged-in').removeClass('hidden');
       $('#login').addClass('hidden'); 
@@ -79,6 +81,7 @@
  function logout() {
    firebase.auth()
   .signOut().then(function() {
+    window.location='index.html';
      $('#logged-in').addClass('hidden');
      $('#login').removeClass('hidden');
    }).catch(function(error) {
