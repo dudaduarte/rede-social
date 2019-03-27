@@ -32,6 +32,8 @@ $(document).ready(function () {
   $('#button-logout').click(logout);
 
   function login(e) {
+    e.preventDefault();
+    
     let email = $('#login-email').val();
     let password = $('#login-password').val();
 
@@ -44,7 +46,6 @@ $(document).ready(function () {
 
         alert(`Erro: ${errorMessage}`);
       })
-    e.preventDefault();
   }
 
   function createUser(e) {
