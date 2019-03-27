@@ -58,7 +58,7 @@ $(document).ready(function () {
     if (password === newUserConfirmPass) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(function () {
-          window.location = 'feed.html';
+          window.location = 'presentation.html';
           alert(`Bem-vindo ${newUserName}`);
         })
         .catch(function (error) {
