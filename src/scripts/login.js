@@ -29,7 +29,7 @@ $(document).ready(function () {
 
   $('#login-submit').click(login);
   $('#register-submit').click(createUser);
-  $('#log-out').click(logout);
+  $('#button-logout').click(logout);
 
   function login(e) {
     let email = $('#login-email').val();
