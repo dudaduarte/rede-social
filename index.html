@@ -4,21 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Rede Social</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rede Social</title>
   <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
-  <script>
-    var config = {
-      apiKey: "AIzaSyAGEAtaskkosrV_JNSGACCvilFq_lNj2KU",
-      authDomain: "conectvest.firebaseapp.com",
-      databaseURL: "https://conectvest.firebaseio.com",
-      projectId: "conectvest",
-      storageBucket: "",
-      messagingSenderId: "35670126587"
-    };
-    firebase.initializeApp(config);
-  </script>
+  <script src="config.js"></script>
   <link rel="stylesheet" type="text/css" media="screen" href="./src/main.css">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -34,7 +24,6 @@
 </head>
 
 <body>
-
   <div class="container" id="login">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -69,6 +58,8 @@
                   <div class="form-group">
                     <div class="row jc-c">
                       <div class="col-sm-6 col-sm-offset-3 row jc-c">
+                        <button class="form-btn btn-login btn btn-lg btn-primary" id="authFacebookButton"><i class="fab fa-facebook-f fa-2x"></i></button>
+                        <button class="form-btn btn-login btn btn-lg btn-danger" id="authGoogleButton"><i class="fab fa-google-plus-g fa-2x"></i></button>
                         <button type="submit" id="login-submit" class="form-btn btn-login"><i
                             class="fas fa-chevron-right"></i></button>
                       </div>
