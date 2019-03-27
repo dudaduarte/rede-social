@@ -55,12 +55,6 @@ $(document).ready(function () {
     </div>`
           )}
 
-      function createHourText() {
-        let hourMinutePost = document.createElement('div');
-        let hourMinuteText = document.createTextNode(hour());
-        hourMinutePost.className = 'hourMinute';
-      }
-
       function hour() {
         let datePost = new Date();
         let hourPost = datePost.getHours();
