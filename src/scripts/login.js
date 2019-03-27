@@ -29,7 +29,7 @@ $(document).ready(function () {
 
   $('#login-submit').click(login);
   $('#register-submit').click(createUser);
-  $('#log-out').click(logout);
+  $('#button-logout').click(logout);
 
   function login(e) {
     let email = $('#login-email').val();
@@ -58,7 +58,7 @@ $(document).ready(function () {
     if (password === newUserConfirmPass) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(function () {
-          window.location = 'feed.html';
+          window.location = 'presentation.html';
           alert(`Bem-vindo ${newUserName}`);
         })
         .catch(function (error) {
