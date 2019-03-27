@@ -1,48 +1,41 @@
 
 .body {
-  width: 100%;
-  height: 100%;
   background-color: #984BDC;
 }
 
-.background-icon-yellow {
-  width: 40%;
+@media (max-width: 480px) {
+  .background-icons {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .intro-slide {
+    position: relative;
+    z-index: 2;
+  }
+
+  .img {
+    margin: 10rem 20% 0 20%;
+    width: 60%; 
+  }
+
+  .carousel-text {
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 2rem 1.5rem 0rem 1.5rem;
+    text-align: center;
+  }
+
+  .indicators-carousel {
+    margin-top: 50px;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    margin: 1rem;
+  }
 }
-
-.background-icon-pink {
-  margin-left: 3rem;
-  width: 20%;
-}
-
-.background-icon-green {
-  width: 30%;
-  margin-left: -15%;
-  margin-top: 50%;
-}
-
-.background-icon-blue {
-  width: 40%;
-}
-
-.carousel-text {
-  font-family: 'Roboto Condensed', sans-serif;
-  text-align: center;
-}
-
-.control-carousel {
-  margin-bottom: 5rem;
-}
-
-.carousel-inner img {
-  height: auto;
-  margin-left: 20%;
-  margin-right: 20%;
-  width: 60%;
-}
-
-
-
-
-
-
-
