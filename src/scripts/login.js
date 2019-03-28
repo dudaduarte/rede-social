@@ -70,10 +70,43 @@ $(document).ready(function () {
     }
   }
 
+
+
+
+  const authGoogleButton = $('#authGoogleButton') 
+
+  $('#authGoogleButton').click(function (event) {
+    event.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    signIn(provider);
+  });
+
+   const authFacebookButton = $("#authFacebookButton")
+
+  $('#authFacebookButton').click(function (event) {
+    event.preventDefault();
+    const provider = new firebase.auth.FacebookAuthProvider();
+    signIn(provider);
+  });
+
+  function signIn(provider) {
+    firebase.auth()
+      .signInWithPopup(provider)
+      .then(function(result) {
+        let token = result.credential.accessToken;
+        let user = result.user;
+        window.location = 'feed.html';
+        alert(`Bem-vindo ${displayName}`);
+      }).catch(function (error) {
+        console.log(error);
+        alert('Falha na autenticação');
+    });
+  }
+
   function logout() {
     firebase.auth()
       .signOut().then(function () {
-        window.location = 'index.html';
+        window.location = '.script/.src/index.html';
       }).catch(function (error) {
         // An error happened.
       });
