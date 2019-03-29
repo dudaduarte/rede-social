@@ -32,6 +32,8 @@ $(document).ready(function () {
   $('#button-logout').click(logout);
 
   function login(e) {
+    e.preventDefault();
+    
     let email = $('#login-email').val();
     let password = $('#login-password').val();
 
@@ -47,12 +49,12 @@ $(document).ready(function () {
     e.preventDefault();
 
     //desativa b.form-btn btn register caso seja vazio
-    $('.register-submit').submit(function() {
-      if($('.login-password').val()== null || $('.login-submit').val() ==""){
-          alert('Campos Obrigatórios');      
-          return false;
-      }
-    });
+    // $('.register-submit').submit(function() {
+    //   if($('.login-password').val()== null || $('.login-submit').val() ==""){
+    //       alert('Campos Obrigatórios');      
+    //       return false;
+    //   }
+    // });
   }
 
   function createUser(e) {

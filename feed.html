@@ -10,7 +10,8 @@
 
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -26,15 +27,15 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-purple">
-            <a class="navbar-brand" href="#">Navbar</a>
+        <nav class="df jc-fe navbar navbar-expand-lg navbar-dark bg-purple">
+            <a class="navbar-brand" href="feed.html"><img src="./images/logo-conectvest-01.png" class='style-logo-feed'></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
                 aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-                <ul class="navbar-nav mr-auto">
+            <div class="jc-fe collapse navbar-collapse" id="conteudoNavbarSuportado">
+                <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home <span class="sr-only">(página atual)</span></a>
                     </li>
@@ -62,26 +63,12 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                    <button class="btn-feed my-2 my-sm-0 btn-search" type="submit">Pesquisar</button>
                 </form>
             </div>
         </nav>
     </header>
     <main>
-        <!-- <nav class="navbar navbar-light bg-white">
-            <a href="#" class="navbar-brand">Bootsbook</a>
-            <form class="form-inline">
-                <div class="input-group">
-                    <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-primary" type="button" id="button-addon2">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </nav> -->
-
         <div class="container-fluid gedf-wrapper">
             <div class="row">
                 <div class="col-md-3">
@@ -146,7 +133,7 @@
                             </div>
                             <div class="btn-toolbar justify-content-between">
                                 <div class="btn-group">
-                                    <button type="submit" class="btn btn-primary" id="btn-share">Compartilhar</button>
+                                    <button type="submit" class="btn-feed btn-share" id="btn-share">Compartilhar</button>
                                 </div>
                                 <div class="btn-group">
                                     <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle"
@@ -195,7 +182,6 @@
             </div>
         </div>
     </main>
-
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="./src/scripts/config.js"></script>

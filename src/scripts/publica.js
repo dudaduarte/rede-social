@@ -1,15 +1,15 @@
 let database = firebase.database();
 
 $(document).ready(function () {
-    $('#btn-share').click(function(event) {
+    $('#btn-share').click(function (event) {
         event.preventDefault();
 
         let userText = $('#user-message').val();
 
         database.ref('posts').push({
-            message: userText 
+            message: userText
 
-            });
+        });
 
         $('#posts-container').append(`
         <div class="card gedf-card">
@@ -54,18 +54,18 @@ $(document).ready(function () {
             <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
         </div>
     </div>`
-    )
+        )
 
-});
+    });
 
-function checkNumberDate(number) {
-    if (number.length < 2) {
-        number = `0${number}`;
+    function checkNumberDate(number) {
+        if (number.length < 2) {
+            number = `0${number}`;
+        }
+        return number;
     }
-    return number;
-}
 
-      function hourDate() {
+    function hourDate() {
         let datePost = new Date();
         let dayPost = datePost.getDate().toString();
         let monthPost = datePost.getMonth().toString();
@@ -74,7 +74,7 @@ function checkNumberDate(number) {
         let minutesPost = datePost.getMinutes().toString();
         let hourMinutePost = `${checkNumberDate(dayPost)}/${checkNumberDate(monthPost)}/${yearPost} <i class="fa fa-clock-o"></i> ${checkNumberDate(hourPost)}h${checkNumberDate(minutesPost)}`;
         return hourMinutePost;
-      }
+    }
 });
 
 
