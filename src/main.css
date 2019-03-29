@@ -10,11 +10,11 @@
 }
 
 .bg-purple {
-	background-color: #644C93;
+	background-color: #984BDC;
 }
 
 #button-logout {
-	background-color: #644C93;
+	background-color: #984BDC;
 	outline: none;
 	border: none;
 }
@@ -89,6 +89,10 @@
     text-align: left;
 }
 
+.jc-fe {
+	justify-content: flex-end;
+}
+
 .df {
     display: flex;
 }
@@ -104,6 +108,42 @@ span i.fas, span i.far {
 
 .form-group {
     align-items: center;
+}
+
+.style-logo-feed {
+	width: 16vw;
+	padding: 2px;
+}
+
+.btn-feed {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-search {
+	background-color: #5CC6D0;
+	color: white;
+}
+
+.btn-share {
+	background-color: rgb(230, 192, 59);
+	color: white;
+}
+
+.btn-share:hover {
+	background-color: #FFD234;
 }
 
 .input-form {
