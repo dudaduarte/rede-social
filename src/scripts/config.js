@@ -1,4 +1,4 @@
-let config = {
+const config = {
     apiKey: "AIzaSyAGEAtaskkosrV_JNSGACCvilFq_lNj2KU",
     authDomain: "conectvest.firebaseapp.com",
     databaseURL: "https://conectvest.firebaseio.com",
