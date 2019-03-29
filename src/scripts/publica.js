@@ -1,10 +1,10 @@
-var database = firebase.database();
+let database = firebase.database();
 
 $(document).ready(function () {
     $('#btn-share').click(function(event) {
         event.preventDefault();
 
-        let userText = $('#user-message'). val();
+        let userText = $('#user-message').val();
 
         database.ref('posts').push({
             message: userText 
@@ -40,7 +40,7 @@ $(document).ready(function () {
         </div>
 
         <div class="card-body">
-            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>${hour()}
+            <div class="text-muted h7 mb-2">${hourDate()}
             </div>
 
             <p class="card-text">
@@ -58,19 +58,21 @@ $(document).ready(function () {
 
 });
 
-      function hour() {
+function checkNumberDate(number) {
+    if (number.length < 2) {
+        number = `0${number}`;
+    }
+    return number;
+}
+
+      function hourDate() {
         let datePost = new Date();
-        let hourPost = datePost.getHours();
-        let minutesPost = datePost.getMinutes();
-        let hourString = hourPost.toString();
-        let minutesString = minutesPost.toString();
-        if (minutesString.length < 2) {
-          minutesString = '0' + minutesString;
-        }
-        if (hourString.length < 2) {
-          hourString = '0' + hourString;
-        }
-        let hourMinutePost = hourString + 'h' + minutesString;
+        let dayPost = datePost.getDate().toString();
+        let monthPost = datePost.getMonth().toString();
+        let yearPost = datePost.getFullYear();
+        let hourPost = datePost.getHours().toString();
+        let minutesPost = datePost.getMinutes().toString();
+        let hourMinutePost = `${checkNumberDate(dayPost)}/${checkNumberDate(monthPost)}/${yearPost} <i class="fa fa-clock-o"></i> ${checkNumberDate(hourPost)}h${checkNumberDate(minutesPost)}`;
         return hourMinutePost;
       }
 });
