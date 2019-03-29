@@ -6,20 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ConectVest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./src/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css">
+
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
-    <script>
-        var config = {
-            apiKey: "AIzaSyAGEAtaskkosrV_JNSGACCvilFq_lNj2KU",
-            authDomain: "conectvest.firebaseapp.com",
-            databaseURL: "https://conectvest.firebaseio.com",
-            projectId: "conectvest",
-            storageBucket: "",
-            messagingSenderId: "35670126587"
-        };
-        firebase.initializeApp(config);
-    </script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -382,10 +373,11 @@
 
     <h1>Você está logado \o/</h1>
     <button id="log-out" class="form-btn btn-register">Sair</button>
+    <script src="src/scripts/config.js"></script>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="./src/scripts/login.js"></script>
-    <script src="./src/scripts/publica.js"></script>
+    <script src="src/scripts/publica.js"></script>
+    
 </body>
 
 </html>

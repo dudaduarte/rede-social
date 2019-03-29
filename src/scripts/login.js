@@ -1,3 +1,5 @@
+var database = firebase.database();
+
 $(document).ready(function () {
 
   $(function () {
@@ -65,7 +67,13 @@ $(document).ready(function () {
 
     if (password === newUserConfirmPass) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(function () {
+        .then(function (response) {
+          response.usuarios.uid
+          database.ref('users').set({
+              nome: newUserName,
+              email: email, 
+          });
+          
           window.location = 'presentation.html';
           alert(`Bem-vindo ${newUserName}`);
         })
@@ -78,9 +86,7 @@ $(document).ready(function () {
     }
   }
 
-
-
-
+  
   const authGoogleButton = $('#authGoogleButton') 
 
   $('#authGoogleButton').click(function (event) {

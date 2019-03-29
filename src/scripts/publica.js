@@ -1,16 +1,17 @@
+var database = firebase.database();
+
 $(document).ready(function () {
+    $('#btn-share').click(function(event) {
+        event.preventDefault();
 
-    $('#btn-share').click(getText);
+        let userText = $('#user-message'). val();
 
-    function getText(e) {
-        e.preventDefault();
-        let userText = document.getElementById('user-message').value.trim();
-        document.getElementById('user-message').value = '';
-        postText(userText);
-      }
+        database.ref('posts').push({
+            message: userText 
 
-      function postText(text) {
-          $('#posts-container').html(`
+            });
+
+        $('#posts-container').append(`
         <div class="card gedf-card">
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
@@ -43,7 +44,7 @@ $(document).ready(function () {
             </div>
 
             <p class="card-text">
-                ${text}
+                ${userText}
             </p>
         </div>
         
@@ -53,7 +54,9 @@ $(document).ready(function () {
             <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
         </div>
     </div>`
-          )}
+    )
+
+});
 
       function hour() {
         let datePost = new Date();
@@ -71,3 +74,9 @@ $(document).ready(function () {
         return hourMinutePost;
       }
 });
+
+
+
+            // username: name,
+            // email: email,
+            // profile_picture : imageUrl
