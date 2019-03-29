@@ -49,12 +49,12 @@ $(document).ready(function () {
     e.preventDefault();
 
     //desativa b.form-btn btn register caso seja vazio
-    // $('.register-submit').submit(function() {
-    //   if($('.login-password').val()== null || $('.login-submit').val() ==""){
-    //       alert('Campos Obrigatórios');      
-    //       return false;
-    //   }
-    // });
+     $('.register-submit').submit(function() {
+       if($('.login-password').val()== null || $('.login-submit').val() ==""){
+           alert('Campos Obrigatórios');      
+           return false;
+       }
+     });
   }
 
   function createUser(e) {
