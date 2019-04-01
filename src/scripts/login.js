@@ -18,12 +18,14 @@ $(document).ready(function () {
 
   });
 
-  firebase.auth().onAuthStateChanged(firebaseUser => {
+  let teste = firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
       console.log('logged in')
       console.log(firebaseUser);
+      return firebaseUser;
     } else {
       console.log('not logged in');
+      return false;
     }
   });
 
@@ -67,7 +69,8 @@ $(document).ready(function () {
     let newUserConfirmPass = $('#confirm-password').val();
 
     if (password === newUserConfirmPass) {
-      firebase.database().ref('users/').push({
+
+      firebase.database().ref(`users/${user.id}`).push({
         date: newUserDate,
         email: email,
         name: newUserName
