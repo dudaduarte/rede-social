@@ -38,8 +38,8 @@ $(document).ready(function () {
     let password = $('#login-password').val();
 
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(function () {
-        window.location = 'feed.html';
+      .then(function (response) {
+        window.location = `feed.html?id=${response.user.uid}`;
       })
       .catch(function (error) {
         let errorMessage = error.message;
@@ -67,10 +67,7 @@ $(document).ready(function () {
     let newUserConfirmPass = $('#confirm-password').val();
 
     if (password === newUserConfirmPass) {
-      // var user = firebase.auth().currentUser;
-      // firebase.database().ref('users').push(response.uid);
-      // firebase.database().ref('users' + user.uid).push({
-      firebase.database().ref('users').push({
+      firebase.database().ref('users/').push({
         date: newUserDate,
         email: email,
         name: newUserName
@@ -78,7 +75,7 @@ $(document).ready(function () {
       
       firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(function (response) {          
-          window.location = 'presentation.html';
+          window.location = `feed.html?id=${response.user.uid}`;
           alert(`Bem-vindo ${newUserName}`);
         })
         .catch(function (error) {
