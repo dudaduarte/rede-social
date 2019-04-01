@@ -61,25 +61,33 @@ $(document).ready(function () {
     e.preventDefault();
 
     let newUserName = $('#name').val();
+    let newUserDate = $('#age').val();
     let email = $('#email').val();
     let password = $('#password').val();
     let newUserConfirmPass = $('#confirm-password').val();
 
     if (password === newUserConfirmPass) {
+      // var user = firebase.auth().currentUser;
+      // firebase.database().ref('users').push(response.uid);
+      // firebase.database().ref('users' + user.uid).push({
+      firebase.database().ref('users').push({
+        date: newUserDate,
+        email: email,
+        name: newUserName
+      });
+      
       firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(function (response) {
-          response.usuarios.uid
-          database.ref('users').set({
-              nome: newUserName,
-              email: email, 
-          });
-          
+        .then(function (response) {          
           window.location = 'presentation.html';
           alert(`Bem-vindo ${newUserName}`);
         })
         .catch(function (error) {
           let errorMessage = error.message;
+          if (errorMessage == 'auth/weak-password') {
+            alert ('Erro: a senha é muito fraca.')
+          } else {
           alert(`Erro: ${errorMessage}`);
+        }
         })
     } else {
       alert('Senhas digitadas não correspondem entre si. Digite novamente.')
@@ -120,7 +128,7 @@ $(document).ready(function () {
   function logout() {
     firebase.auth()
       .signOut().then(function () {
-        window.location = '.script/.src/index.html';
+        window.location = 'index.html';
       }).catch(function (error) {
         // An error happened.
       });

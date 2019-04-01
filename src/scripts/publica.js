@@ -8,7 +8,6 @@ $(document).ready(function () {
 
         database.ref('posts').push({
             message: userText
-
         });
 
         $('#posts-container').append(`
