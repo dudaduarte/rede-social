@@ -49,8 +49,7 @@ $(document).ready(function () {
     //desativa b.form-btn btn register caso seja vazio
     $('.register-submit').submit(function() {
       if($('.login-password').val()== null || $('.login-submit').val() ==""){
-          alert('Campos Obrigatórios');      
-          return false;
+      return false;
       }
     });
   }
