@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +9,9 @@
   <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
   <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  
+  
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -20,8 +22,17 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-</head>
 
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script type="text/javascript"src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+        <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
+        <script type="text/javascript"src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+        <script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+        <script type="text/javascript"src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" ></script>
+         
+
+</head>
 <body>
   <div class="container" id="login">
     <div class="row">
@@ -81,16 +92,16 @@
                 <!-- formulário register -->
                 <form id="register-form" style="display: none;">
                   <div class="form-group">
-                    <input type="text" id="name" class="input-form" placeholder="Nome">
+                    <input type="text" id="name" class="input-form" placeholder="Nome" name="name">
                   </div>
                   <div class="form-group">
-                    <input type="email" id="email" class="input-form" placeholder="E-mail">
+                    <input type="email" id="email" class="input-form" placeholder="E-mail" name="email">
                   </div>
                   <div class="form-group">
-                    <input type="password" id="password" class="input-form" placeholder="Senha">
+                    <input type="password" id="password" class="input-form" placeholder="Senha" name="password">
                   </div>
                   <div class="form-group">
-                    <input type="password" id="confirm-password" class="input-form" placeholder="Confirmar senha">
+                    <input type="password" id="confirm-password" class="input-form" placeholder="Confirmar senha" name="paswordConfirmation">
                   </div>
                   <div class="form-group">
                     <div class="row jc-c">
@@ -113,6 +124,13 @@
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="src/scripts/login.js"></script>
   <script src="src/scripts/config.js"></script>
+  <script src="./src/scripts/validacao.js"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+                    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
+        <script type="text/javascript"src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+        <script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" ></script>
+     
 </body>
-
 </html>

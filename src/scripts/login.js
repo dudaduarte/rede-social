@@ -46,13 +46,7 @@ $(document).ready(function () {
       })
     e.preventDefault();
 
-    //desativa b.form-btn btn register caso seja vazio
-    $('.register-submit').submit(function() {
-      if($('.login-password').val()== null || $('.login-submit').val() ==""){
-      return false;
       }
-    });
-  }
 
   function createUser(e) {
     e.preventDefault();
@@ -76,10 +70,6 @@ $(document).ready(function () {
       alert('Senhas digitadas não correspondem entre si. Digite novamente.')
     }
   }
-
-
-
-
   const authGoogleButton = $('#authGoogleButton') 
 
   $('#authGoogleButton').click(function (event) {
