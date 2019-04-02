@@ -113,7 +113,6 @@ $(document).ready(function () {
       .then(function (result) {
         let token = result.credential.accessToken;
         let user = result.user;
-        window.location = `feed.html?id=${user.uid}`;
         alert(`Bem-vindo ${displayName}`);
       }).catch(function (error) {
         console.log(error);
