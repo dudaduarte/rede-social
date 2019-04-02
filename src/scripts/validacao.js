@@ -5,7 +5,6 @@
 //       }
 //     });
     
-
 $(document).ready( function() {
     $('#register-form').validate({
       rules:{ 
@@ -23,8 +22,7 @@ $(document).ready( function() {
         password_confirmation:{
           required: true,
           equalTo: "#password"
-        },
-        terms_of_use: "required"
+        }
       },
       messages:{
         name:{ 
@@ -41,8 +39,7 @@ $(document).ready( function() {
         password_confirmation:{
           required: "O campo confirmação de senha é obrigatório.",
           equalTo: "O campo confirmação de senha deve ser identico ao campo senha."
-        },
-        terms_of_use: "Para se cadastrar você deve aceitar os termos de uso."
+        }
       }
     });
   });

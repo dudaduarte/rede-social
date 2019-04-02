@@ -46,7 +46,7 @@ $(document).ready(function () {
 
         alert(`Erro: ${errorMessage}`);
       })
-
+    }
     //desativa b.form-btn btn register caso seja vazio
     // $('.register-submit').submit(function () {
     //   if ($('.login-password').val() == null || $('.login-submit').val() == "") {
@@ -129,6 +129,4 @@ $(document).ready(function () {
         // An error happened.
       });
   }
-
-});
-
+})
