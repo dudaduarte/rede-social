@@ -32,45 +32,64 @@ $(document).ready(function () {
   $('#button-logout').click(logout);
 
   function login(e) {
+    e.preventDefault();
+
     let email = $('#login-email').val();
     let password = $('#login-password').val();
 
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(function () {
-        window.location = 'feed.html';
+      .then(function (response) {
+        window.location = `feed.html?id=${response.user.uid}`;
       })
       .catch(function (error) {
         let errorMessage = error.message;
 
         alert(`Erro: ${errorMessage}`);
       })
-    e.preventDefault();
 
-      }
+    //desativa b.form-btn btn register caso seja vazio
+    // $('.register-submit').submit(function () {
+    //   if ($('.login-password').val() == null || $('.login-submit').val() == "") {
+    //     alert('Campos Obrigatórios');
+    //     return false;
+    //   }
 
   function createUser(e) {
     e.preventDefault();
 
     let newUserName = $('#name').val();
+    let newUserDate = $('#age').val();
     let email = $('#email').val();
     let password = $('#password').val();
     let newUserConfirmPass = $('#confirm-password').val();
 
     if (password === newUserConfirmPass) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(function () {
-          window.location = 'presentation.html';
-          alert(`Bem-vindo ${newUserName}`);
+        .then(function (response) {
+          let userId = response.user.uid;
+          firebase.database().ref(`users/${userId}`).set({
+            name: newUserName,
+            email: email,
+            date: newUserDate
+          }).then(function() {
+            window.location = `feed.html?id=${userId}`;
+          })
         })
         .catch(function (error) {
           let errorMessage = error.message;
-          alert(`Erro: ${errorMessage}`);
+          if (errorMessage == 'auth/weak-password') {
+            alert('Erro: a senha é muito fraca.')
+          } else {
+            alert(`Erro: ${errorMessage}`);
+          }
         })
     } else {
       alert('Senhas digitadas não correspondem entre si. Digite novamente.')
     }
   }
-  const authGoogleButton = $('#authGoogleButton') 
+
+
+  const authGoogleButton = $('#authGoogleButton')
 
   $('#authGoogleButton').click(function (event) {
     event.preventDefault();
@@ -78,7 +97,7 @@ $(document).ready(function () {
     signIn(provider);
   });
 
-   const authFacebookButton = $("#authFacebookButton")
+  const authFacebookButton = $("#authFacebookButton")
 
   $('#authFacebookButton').click(function (event) {
     event.preventDefault();
@@ -89,22 +108,24 @@ $(document).ready(function () {
   function signIn(provider) {
     firebase.auth()
       .signInWithPopup(provider)
-      .then(function(result) {
+      .then(function (result) {
         let token = result.credential.accessToken;
         let user = result.user;
-        window.location = 'feed.html';
+        window.location = `feed.html?id=${user.uid}`;
         alert(`Bem-vindo ${displayName}`);
       }).catch(function (error) {
         console.log(error);
         alert('Falha na autenticação');
-    });
+      });
   }
 
   function logout() {
     firebase.auth()
-      .signOut().then(function () {
-        window.location = '.script/.src/index.html';
-      }).catch(function (error) {
+      .signOut()
+      .then(function () {
+        window.location = 'index.html';
+      })
+      .catch(function (error) {
         // An error happened.
       });
   }
