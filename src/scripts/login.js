@@ -22,10 +22,8 @@ $(document).ready(function () {
     if (firebaseUser) {
       console.log('logged in')
       console.log(firebaseUser);
-      return firebaseUser;
     } else {
       console.log('not logged in');
-      return false;
     }
   });
 
@@ -48,7 +46,6 @@ $(document).ready(function () {
 
         alert(`Erro: ${errorMessage}`);
       })
-    e.preventDefault();
 
     //desativa b.form-btn btn register caso seja vazio
     $('.register-submit').submit(function () {
@@ -69,18 +66,10 @@ $(document).ready(function () {
     let newUserConfirmPass = $('#confirm-password').val();
 
     if (password === newUserConfirmPass) {
-
-      // firebase.database().ref(`users/`).push({
-      //   date: newUserDate,
-      //   email: email,
-      //   name: newUserName
-      // });
-
       firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(function (response) {
-
           let userId = response.user.uid;
-          firebase.database().ref('users/' + userId).set({
+          firebase.database().ref(`users/${userId}`).set({
             name: newUserName,
             email: email,
             date: newUserDate
@@ -124,7 +113,7 @@ $(document).ready(function () {
       .then(function (result) {
         let token = result.credential.accessToken;
         let user = result.user;
-        window.location = 'feed.html';
+        window.location = `feed.html?id=${user.uid}`;
         alert(`Bem-vindo ${displayName}`);
       }).catch(function (error) {
         console.log(error);

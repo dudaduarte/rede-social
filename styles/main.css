@@ -4,6 +4,10 @@
     font-size: 16px;
 }
 
+.marg {
+	margin: 10px 0;
+}
+
 #posts-container {
 	display: flex;
 	flex-direction: column-reverse;

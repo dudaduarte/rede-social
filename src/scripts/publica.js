@@ -3,14 +3,25 @@ let USER_ID = window.location.search.match(/\?id=(.*)/)[1];
 
 $(document).ready(function () {
 
-    database.ref(`posts/${USER_ID}`).once('value')
-    .then(function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            let childKey = childSnapshot.key;
-            let childData = childSnapshot.val();
+    // necessário pesquisar sobre sdk admin do firebase pra isso funcionar \/
 
-            $('#posts-container').append(`
-        <div class="card gedf-card">
+    // admin.auth().getUser(USER_ID)
+    //     .then(function (userRecord) {
+    //         // See the UserRecord reference doc for the contents of userRecord.
+    //         console.log("Successfully fetched user data:", userRecord.toJSON());
+    //     })
+    //     .catch(function (error) {
+    //         console.log("Error fetching user data:", error);
+    //     });
+
+    database.ref(`posts/${USER_ID}`).once('value')
+        .then(function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                let childKey = childSnapshot.key;
+                let childData = childSnapshot.val();
+
+                $('#posts-container').append(`
+        <div class="card gedf-card marg">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
@@ -41,7 +52,7 @@ $(document).ready(function () {
         </div>
     
         <div class="card-body">
-            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> ${childData.date}</div>
+            <div class="text-muted h7 mb-2">${childData.date}</div>
     
             <p class="card-text">
                 ${childData.message}
@@ -53,24 +64,26 @@ $(document).ready(function () {
             <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
         </div>
     </div>`
-        )
+                )
+            })
         })
-    })
 
 
     $('#btn-share').click(function (event) {
         event.preventDefault();
 
         let userText = $('#user-message').val();
+        let dataPost = hourDate();
 
         database.ref(`posts/${USER_ID}`).push({
-            message: userText
+            message: userText,
+            date: dataPost
         });
 
-        console.log(userText);
+        console.log(USER_ID);
 
         $('#posts-container').append(`
-        <div class="card gedf-card">
+        <div class="card gedf-card marg">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
@@ -101,7 +114,7 @@ $(document).ready(function () {
         </div>
     
         <div class="card-body">
-            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> ${hourDate()}</div>
+            <div class="text-muted h7 mb-2">${hourDate()}</div>
     
             <p class="card-text">
                 ${userText}
