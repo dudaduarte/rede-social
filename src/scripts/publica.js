@@ -80,8 +80,6 @@ $(document).ready(function () {
             date: dataPost
         });
 
-        console.log(USER_ID);
-
         $('#posts-container').append(`
         <div class="card gedf-card marg">
         <div class="card-header">
@@ -148,9 +146,3 @@ $(document).ready(function () {
         return hourMinutePost;
     }
 });
-
-
-
-            // username: name,
-            // email: email,
-            // profile_picture : imageUrl
