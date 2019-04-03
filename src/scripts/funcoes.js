@@ -123,7 +123,7 @@ $(document).ready(function () {
         </div>
 
         <div class="card-body">
-            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>${hour()}
+            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>${hourDate()}
             </div>
 
             <p class="card-text">
@@ -141,21 +141,22 @@ $(document).ready(function () {
 
 });
 
-      function hour() {
-        let datePost = new Date();
-        let hourPost = datePost.getHours();
-        let minutesPost = datePost.getMinutes();
-        let hourString = hourPost.toString();
-        let minutesString = minutesPost.toString();
-        if (minutesString.length < 2) {
-          minutesString = '0' + minutesString;
-        }
-        if (hourString.length < 2) {
-          hourString = '0' + hourString;
-        }
-        let hourMinutePost = hourString + 'h' + minutesString;
-        return hourMinutePost;
-      }
+function hourDate() {
+    let datePost = new Date();
+    let dayPost = datePost.getDate();
+    let hourPost = datePost.getHours();
+    let minutesPost = datePost.getMinutes();
+    let hourString = hourPost.toString();
+    let minutesString = minutesPost.toString();
+    if (minutesString.length < 2) {
+      minutesString = '0' + minutesString;
+    }
+    if (hourString.length < 2) {
+      hourString = '0' + hourString;
+    }
+    let hourMinutePost = `${hourString}h${minuteString} - ${dayPost}`;
+    return hourMinutePost;
+  }
 });
 
 
