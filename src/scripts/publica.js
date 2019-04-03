@@ -14,7 +14,7 @@ $(document).ready(function () {
     //         console.log("Error fetching user data:", error);
     //     });
 
-    function messagePost(date, message) {
+    function messagePost(date, message, user) {
         $('#posts-container').append(`
         <div class="card gedf-card marg">
         <div class="card-header">
@@ -24,7 +24,7 @@ $(document).ready(function () {
                     <a href="profile.html?id=${USER_ID}"><img class="profile-link rounded-circle" width="45" src="https://picsum.photos/50/50"></a>
                     </div>
                     <div class="ml-2">
-                    <a href="profile.html?id=${USER_ID}"><div class="profile-link h5 m-0">Nome do Usuário</div></a>
+                    <a href="profile.html?id=${USER_ID}"><div class="profile-link h5 m-0">${user.name}</div></a>
                         <div class="h7 text-muted">Status?</div>
                     </div>
                 </div>
@@ -68,7 +68,11 @@ $(document).ready(function () {
             snapshot.forEach(function (childSnapshot) {
                 let childKey = childSnapshot.key;
                 let childData = childSnapshot.val();
-                messagePost(childData.date, childData.message)
+                database.ref(`users/${USER_ID}`).once('value', function (snapshot) {
+                    let user = snapshot.val();
+                    console.log(user);
+                    messagePost(childData.date, childData.message, user)
+                })
             })
         })
 
