@@ -21,12 +21,11 @@ $(document).ready(function () {
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="mr-2">
-                        <a href="./profile/usuario"><img class="rounded-circle" width="45" src="https://picsum.photos/50/50"
-                            alt=""></a>
+                    <a href="profile.html?id=${USER_ID}"><img class="profile-link rounded-circle" width="45" src="https://picsum.photos/50/50"></a>
                     </div>
                     <div class="ml-2">
-                        <a href="./profile/usuario"><div class="h5 m-0">Nome do Usuário</div>
-                        <div class="h7 text-muted">Status?</div></a>
+                    <a href="profile.html?id=${USER_ID}"><div class="profile-link h5 m-0">Nome do Usuário</div></a>
+                        <div class="h7 text-muted">Status?</div>
                     </div>
                 </div>
                 <div>
@@ -59,8 +58,10 @@ $(document).ready(function () {
             <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
         </div>
     </div>`
-                )
+        )
     }
+
+    // $('.profile-link').click(function() { window.location = (`profile.html?id=${USER_ID}`) })
 
     database.ref(`posts/${USER_ID}`).once('value')
         .then(function (snapshot) {
