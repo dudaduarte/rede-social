@@ -89,9 +89,8 @@ $(document).ready(function () {
       alert('Senhas digitadas não correspondem entre si. Digite novamente.')
     }
   }
-
-
-  const authGoogleButton = $('#authGoogleButton')
+  
+  const authGoogleButton = $('#authGoogleButton') 
 
   $('#authGoogleButton').click(function (event) {
     event.preventDefault();
@@ -99,7 +98,7 @@ $(document).ready(function () {
     signIn(provider);
   });
 
-  const authFacebookButton = $("#authFacebookButton")
+   const authFacebookButton = $("#authFacebookButton")
 
   $('#authFacebookButton').click(function (event) {
     event.preventDefault();
@@ -110,14 +109,16 @@ $(document).ready(function () {
   function signIn(provider) {
     firebase.auth()
       .signInWithPopup(provider)
-      .then(function (result) {
+      .then(function(result) {
         let token = result.credential.accessToken;
         let user = result.user;
+        window.location = 'feed.html';
         alert(`Bem-vindo ${displayName}`);
       }).catch(function (error) {
         console.log(error);
         alert('Falha na autenticação');
-      });
+    });
+  
   }
 
   function logout() {
