@@ -3,6 +3,8 @@ let USER_ID = window.location.search.match(/\?id=(.*)/)[1];
 
 $(document).ready(function () {
 
+  $('#logo-navbar, #home-navbar').attr('href', `feed.html?id=${USER_ID}`);
+
     // necessário pesquisar sobre sdk admin do firebase pra isso funcionar \/
 
     // admin.auth().getUser(USER_ID)
@@ -27,7 +29,7 @@ $(document).ready(function () {
                     </div>
                     <div class="ml-2">
                     <a href="profile.html?id=${USER_ID}"><div class="profile-link h5 m-0">${user.name}</div></a>
-                        <div class="h7 text-muted">Status?</div>
+                        <div class="h7 text-muted">${user.status? user.status : ""}</div>
                     </div>
                 </div>
                 <div>
