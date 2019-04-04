@@ -1,8 +1,15 @@
 * {
     margin: 0;
     padding: 0;
-    font-size: 16px;
+	font-size: 16px;
+	
 }
+
+body {
+	background-color: #F7F2FA;
+}
+
+
 
 .marg {
 	margin: 10px 0;
@@ -209,4 +216,8 @@ span i.fas, span i.far {
 
 .hidden {
 	display: none;
+}
+
+.background-container {
+    background-color: #F7F2FA;
 }

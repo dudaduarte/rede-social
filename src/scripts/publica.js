@@ -36,7 +36,11 @@ $(document).ready(function () {
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
                             <a class="dropdown-item" href="#">Salvar</a>
-                            <a class="dropdown-item" href="#">Esconder</a>
+                            <a class="dropdown-item" href="#">Editar</a>
+                            <a class="dropdown-item" href="#">Excluir</a>
+
+                            <a class="dropdown-item" href="#"data-posts-id=${childKey}>Excluir<span>${childData.message}</span></a>
+
                             <a class="dropdown-item" href="#">Excluir</a>
                         </div>
                     </div>
@@ -58,7 +62,12 @@ $(document).ready(function () {
             <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
         </div>
     </div>`
-        )
+        );
+        $(`a[data-posts-id="${childKey}"]`).click(function() {
+            database.ref("posts/" + USER_ID + "/" + childKey).remove();
+            // console.log("teste remove");
+            $(this).parent().remove();
+        });
     }
 
     // $('.profile-link').click(function() { window.location = (`profile.html?id=${USER_ID}`) })
@@ -72,13 +81,15 @@ $(document).ready(function () {
             })
         })
 
+    
+
     $('#btn-share').click(function (event) {
         event.preventDefault();
 
         let userText = $('#user-message').val();
         let dataPost = hourDate();
 
-        database.ref(`posts/${USER_ID}`).push({
+        let postFromDB = database.ref(`posts/${USER_ID}`).push({
             message: userText,
             date: dataPost
         });
