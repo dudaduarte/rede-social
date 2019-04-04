@@ -1,14 +1,17 @@
-let database = firebase.database();
-let USER_ID = window.location.search.match(/\?id=(.*)/)[1];
-
 $(document).ready(function () {
 
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
-  
-  $(function () {
-    $('[data-toggle="popover"]').popover()
-  })
+    $('#logo-navbar, #home-navbar').attr('href', `feed.html?id=${USER_ID}`);
+
+    database.ref(`users/${USER_ID}`).once('value', function (snapshot) {
+        let user = snapshot.val();
+
+        console.log(user);
+        $('#display-name, #display-name-small').html(user.name);
+        $('#display-status').html(!user.status? "Set Status" : user.status);
+        $('#display-email').html(user.email);
+        $('#display-pnumber').html(!user.pnumber? "Não disponível" : user.pnumber);
+        $('#display-school').html(!user.school? "Não informado" : user.school);
+    })
+
 
 })

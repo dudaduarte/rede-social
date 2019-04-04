@@ -3,6 +3,8 @@ let USER_ID = window.location.search.match(/\?id=(.*)/)[1];
 
 $(document).ready(function () {
 
+  $('#logo-navbar, #home-navbar').attr('href', `feed.html?id=${USER_ID}`);
+
     // necessário pesquisar sobre sdk admin do firebase pra isso funcionar \/
 
     // admin.auth().getUser(USER_ID)
@@ -14,7 +16,9 @@ $(document).ready(function () {
     //         console.log("Error fetching user data:", error);
     //     });
 
-    function messagePost(date, message) {
+    $('#btn-share').click(btnShare);
+
+    function messagePost(date, message, user) {
         $('#posts-container').append(`
         <div class="card gedf-card marg">
         <div class="card-header">
@@ -24,8 +28,8 @@ $(document).ready(function () {
                     <a href="profile.html?id=${USER_ID}"><img class="profile-link rounded-circle" width="45" src="https://picsum.photos/50/50"></a>
                     </div>
                     <div class="ml-2">
-                    <a href="profile.html?id=${USER_ID}"><div class="profile-link h5 m-0">Nome do Usuário</div></a>
-                        <div class="h7 text-muted">Status?</div>
+                    <a href="profile.html?id=${USER_ID}"><div class="profile-link h5 m-0">${user.name}</div></a>
+                        <div class="h7 text-muted">${user.status? user.status : ""}</div>
                     </div>
                 </div>
                 <div>
@@ -77,11 +81,13 @@ $(document).ready(function () {
             snapshot.forEach(function (childSnapshot) {
                 let childKey = childSnapshot.key;
                 let childData = childSnapshot.val();
-                messagePost(childData.date, childData.message)
+                database.ref(`users/${USER_ID}`).on('value', function (snapshot) {
+                    let user = snapshot.val();
+                    messagePost(childData.date, childData.message, user)
+                })
             })
         })
 
-    
 
     $('#btn-share').click(function (event) {
         event.preventDefault();
@@ -94,9 +100,16 @@ $(document).ready(function () {
             date: dataPost
         });
 
-        messagePost(hourDate(), userText);
 
-    });
+      database.ref(`posts/${USER_ID}`).push({
+          message: userText,
+          date: dataPost
+      });
+      database.ref(`users/${USER_ID}`).once('value', function (snapshot) {
+        let user = snapshot.val();
+      messagePost (hourDate(), userText, user)
+      })
+    }
 
     function checkNumberDate(number) {
         if (number.length < 2) {
