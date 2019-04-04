@@ -72,7 +72,8 @@ $(document).ready(function () {
           firebase.database().ref(`users/${userId}`).set({
             name: newUserName,
             email: email,
-            date: newUserDate
+            date: newUserDate,
+            pic: 'https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png'
           }).then(function() {
             window.location = `feed.html?id=${userId}`;
           })

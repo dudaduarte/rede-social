@@ -20,14 +20,15 @@ $(document).ready(function () {
 
     $('#btn-search').click(function(e){
       e.preventDefault();
-      if ($('#input-search').hasClass('hidden')){
-      $('#input-search').removeClass('hidden');
+      let input = $('#input-search');
+      if (input.hasClass('hidden')){
+      input.removeClass('hidden');
     } else {
-      $('#input-search').addClass('hidden');
+      input.addClass('hidden');
     }
     });
 
-    $('#option-profile').attr('href', `profile.html?id=${USER_ID}`);
+    $('#option-profile, #profile-pic-nav').attr('href', `profile.html?id=${USER_ID}`);
 
     function messagePost(date, message, user) {
         $('#posts-container').append(`
@@ -87,6 +88,7 @@ $(document).ready(function () {
                     let user = snapshot.val();
                     messagePost(childData.date, childData.message, user)
                     $('#navbarDropdown').html(user.name);
+                    $('#profile-pic-navbar').attr('src', user.pic);
                 })
             })
         })
