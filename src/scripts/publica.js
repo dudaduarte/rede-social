@@ -18,6 +18,18 @@ $(document).ready(function () {
 
     $('#btn-share').click(btnShare);
 
+    $('#btn-search').click(function(e){
+      e.preventDefault();
+      let input = $('#input-search');
+      if (input.hasClass('hidden')){
+      input.removeClass('hidden');
+    } else {
+      input.addClass('hidden');
+    }
+    });
+
+    $('#option-profile, #profile-pic-nav').attr('href', `profile.html?id=${USER_ID}`);
+
     function messagePost(date, message, user) {
         $('#posts-container').append(`
         <div class="card gedf-card marg">
@@ -84,6 +96,8 @@ $(document).ready(function () {
                 database.ref(`users/${USER_ID}`).on('value', function (snapshot) {
                     let user = snapshot.val();
                     messagePost(childData.date, childData.message, user)
+                    $('#navbarDropdown').html(user.name);
+                    $('#profile-pic-navbar').attr('src', user.pic);
                 })
             })
         })
@@ -126,6 +140,6 @@ $(document).ready(function () {
         let hourPost = datePost.getHours().toString();
         let minutesPost = datePost.getMinutes().toString();
         let hourMinutePost = `${checkNumberDate(dayPost)}/${checkNumberDate(monthPost)}/${yearPost} <i class="fa fa-clock-o"></i> ${checkNumberDate(hourPost)}h${checkNumberDate(minutesPost)}`;
-        return hourMinutePost;
+      return hourMinutePost;
     }
 });

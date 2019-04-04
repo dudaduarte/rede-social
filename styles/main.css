@@ -20,6 +20,10 @@ body {
 	flex-direction: column-reverse;
 }
 
+.btn-circle {
+	border-radius: 50%;
+}
+
 .bg-purple {
 	background-color: #984BDC;
 }
@@ -139,8 +143,15 @@ span i.fas, span i.far {
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-circle {
+	border-radius: 50%;
+}
+
+.btn-30rem {
+	border-radius: .25rem;
 }
 
 .btn-search {
@@ -221,3 +232,8 @@ span i.fas, span i.far {
 .background-container {
     background-color: #F7F2FA;
 }
+
+.pic-navbar {
+	max-width: 2.5rem;
+	margin: 0 10px;
+  }
