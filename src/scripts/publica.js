@@ -1,9 +1,10 @@
 let database = firebase.database();
 let USER_ID = window.location.search.match(/\?id=(.*)/)[1];
+// let USER_ID = firebase.auth().currentUser.uid
 
 $(document).ready(function () {
 
-  $('#logo-navbar, #home-navbar').attr('href', `feed.html?id=${USER_ID}`);
+    $('#logo-navbar, #home-navbar').attr('href', `feed.html?id=${USER_ID}`);
 
     // necessário pesquisar sobre sdk admin do firebase pra isso funcionar \/
 
@@ -18,19 +19,19 @@ $(document).ready(function () {
 
     $('#btn-share').click(btnShare);
 
-    $('#btn-search').click(function(e){
-      e.preventDefault();
-      let input = $('#input-search');
-      if (input.hasClass('hidden')){
-      input.removeClass('hidden');
-    } else {
-      input.addClass('hidden');
-    }
+    $('#btn-search').click(function (e) {
+        e.preventDefault();
+        let input = $('#input-search');
+        if (input.hasClass('hidden')) {
+            input.removeClass('hidden');
+        } else {
+            input.addClass('hidden');
+        }
     });
 
     $('#option-profile, #profile-pic-nav').attr('href', `profile.html?id=${USER_ID}`);
 
-    function messagePost(date, message, user) {
+    function messagePost(date, message, user, key) {        
         $('#posts-container').append(`
         <div class="card gedf-card marg">
         <div class="card-header">
@@ -41,7 +42,7 @@ $(document).ready(function () {
                     </div>
                     <div class="ml-2">
                     <a href="profile.html?id=${USER_ID}"><div class="profile-link h5 m-0">${user.name}</div></a>
-                        <div class="h7 text-muted">${user.status? user.status : ""}</div>
+                        <div class="h7 text-muted">${user.status ? user.status : ""}</div>
                     </div>
                 </div>
                 <div>
@@ -52,7 +53,11 @@ $(document).ready(function () {
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
                             <a class="dropdown-item" href="#">Salvar</a>
-                            <a class="dropdown-item" href="#">Esconder</a>
+                            <a class="dropdown-item" data-toggle="modal" data-edit-id="${key}" data-target="#exampleModal" href="#">Editar</a>
+                            <a class="dropdown-item" href="#">Excluir</a>
+
+                            <a class="dropdown-item" href="#" data-delete-id="${key}">Excluir<span>${message}</span></a>
+
                             <a class="dropdown-item" href="#">Excluir</a>
                         </div>
                     </div>
@@ -64,7 +69,7 @@ $(document).ready(function () {
         <div class="card-body">
             <div class="text-muted h7 mb-2">${date}</div>
     
-            <p class="card-text">
+            <p class="card-text" data-text-id="${key}">
                 ${message}
             </p>
         </div>
@@ -74,7 +79,27 @@ $(document).ready(function () {
             <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
         </div>
     </div>`
-        )
+        );
+
+        // $(`a[data-delete-id="${key}"]`).click(function () {
+        //     database.ref(`posts/${USER_ID}/${key}`).remove();
+        //     // console.log("teste remove");
+        //     $(this).parent().remove();
+        // });
+
+        $(`a[data-edit-id=${key}]`).click(function() {
+            $('#btn-send-modal').attr('data-send-id', key)
+            console.log(key)
+        })
+
+        $('#btn-send-modal').click(function () {
+            let currentKey = $(this).attr('data-send-id');
+            console.log(currentKey)
+            let newMessage = $('#edit-post').val();
+            database.ref(`posts/${USER_ID}/${currentKey}`).update({'message': newMessage});
+            $(this).attr('data-dismiss', 'modal')
+            $(`p[data-text-id=${currentKey}]`).html(newMessage);
+        })
     }
 
     // $('.profile-link').click(function() { window.location = (`profile.html?id=${USER_ID}`) })
@@ -86,28 +111,34 @@ $(document).ready(function () {
                 let childData = childSnapshot.val();
                 database.ref(`users/${USER_ID}`).on('value', function (snapshot) {
                     let user = snapshot.val();
-                    messagePost(childData.date, childData.message, user)
+                    messagePost(childData.date, childData.message, user, childKey)
                     $('#navbarDropdown').html(user.name);
                     $('#profile-pic-navbar').attr('src', user.pic);
                 })
             })
         })
 
-    function btnShare(e) {
-      e.preventDefault();
 
-      let userText = $('#user-message').val();
-      let dataPost = hourDate();
-      $('#user-message').val('');
+    function btnShare(event) {
+        event.preventDefault();
 
-      database.ref(`posts/${USER_ID}`).push({
-          message: userText,
-          date: dataPost
-      });
-      database.ref(`users/${USER_ID}`).once('value', function (snapshot) {
-        let user = snapshot.val();
-      messagePost (hourDate(), userText, user)
-      })
+        let userText = $('#user-message').val();
+        let dataPost = hourDate();
+
+        let postFromDB = database.ref(`posts/${USER_ID}`).push({
+            message: userText,
+            date: dataPost
+        });
+
+        database.ref(`posts/${USER_ID}`).push({
+            message: userText,
+            date: dataPost
+        });
+
+        database.ref(`users/${USER_ID}`).once('value', function (snapshot) {
+            let user = snapshot.val();
+            messagePost(hourDate(), userText, user, postFromDB.key)
+        });
     }
 
     function checkNumberDate(number) {
@@ -125,6 +156,6 @@ $(document).ready(function () {
         let hourPost = datePost.getHours().toString();
         let minutesPost = datePost.getMinutes().toString();
         let hourMinutePost = `${checkNumberDate(dayPost)}/${checkNumberDate(monthPost)}/${yearPost} <i class="fa fa-clock-o"></i> ${checkNumberDate(hourPost)}h${checkNumberDate(minutesPost)}`;
-      return hourMinutePost;
+        return hourMinutePost;
     }
 });
