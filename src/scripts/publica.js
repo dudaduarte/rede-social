@@ -33,12 +33,12 @@ $(document).ready(function () {
 
     function messagePost(date, message, user, key) {        
         $('#posts-container').append(`
-        <div class="card gedf-card marg">
+        <div class="card gedf-card marg" data-div="${key}">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="mr-2">
-                    <a href="profile.html?id=${USER_ID}"><img class="profile-link rounded-circle" width="45" src="https://picsum.photos/50/50"></a>
+                    <a href="profile.html?id=${USER_ID}"><img id="profile-pic-posts" class="profile-link rounded-circle" width="45"></a>
                     </div>
                     <div class="ml-2">
                     <a href="profile.html?id=${USER_ID}"><div class="profile-link h5 m-0">${user.name}</div></a>
@@ -54,11 +54,7 @@ $(document).ready(function () {
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
                             <a class="dropdown-item" href="#">Salvar</a>
                             <a class="dropdown-item" data-toggle="modal" data-edit-id="${key}" data-target="#exampleModal" href="#">Editar</a>
-                            <a class="dropdown-item" href="#">Excluir</a>
-
-                            <a class="dropdown-item" href="#" data-delete-id="${key}">Excluir<span>${message}</span></a>
-
-                            <a class="dropdown-item" href="#">Excluir</a>
+                            <a class="dropdown-item" href="#" data-delete-id="${key}">Excluir</a>
                         </div>
                     </div>
                 </div>
@@ -81,11 +77,15 @@ $(document).ready(function () {
     </div>`
         );
 
-        // $(`a[data-delete-id="${key}"]`).click(function () {
-        //     database.ref(`posts/${USER_ID}/${key}`).remove();
-        //     // console.log("teste remove");
-        //     $(this).parent().remove();
-        // });
+        $(`a[data-delete-id=${key}]`).click(function(e) {
+            e.preventDefault();
+            $(`div[data-div=${key}]`).remove();
+            
+            // $(this).parent().remove();
+            
+            database.ref('posts/' + USER_ID + "/" + key).remove();
+            // console.log(key);
+        });
 
         $(`a[data-edit-id=${key}]`).click(function() {
             $('#btn-send-modal').attr('data-send-id', key)
@@ -112,6 +112,7 @@ $(document).ready(function () {
                     let user = snapshot.val();
                     messagePost(childData.date, childData.message, user, childKey)
                     $('#navbarDropdown').html(user.name);
+                    $('#profile-pic-navbar, #profile-pic-posts').attr('src', user.pic);
                 })
             })
         })
@@ -147,13 +148,15 @@ $(document).ready(function () {
     }
 
     function hourDate() {
+        
         let datePost = new Date();
         let dayPost = datePost.getDate().toString();
         let monthPost = datePost.getMonth().toString();
         let yearPost = datePost.getFullYear();
         let hourPost = datePost.getHours().toString();
         let minutesPost = datePost.getMinutes().toString();
-        let hourMinutePost = `${checkNumberDate(dayPost)}/${checkNumberDate(monthPost)}/${yearPost} <i class="fa fa-clock-o"></i> ${checkNumberDate(hourPost)}h${checkNumberDate(minutesPost)}`;
+        let hourMinutePost = `${checkNumberDate(dayPost)}/${checkNumberDate(monthPost)}/${yearPost} ${checkNumberDate(hourPost)}:${checkNumberDate(minutesPost)}`;
+
         return hourMinutePost;
     }
 });
