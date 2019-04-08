@@ -94,7 +94,6 @@ $(document).ready(function () {
 
         $('#btn-send-modal').click(function () {
             let currentKey = $(this).attr('data-send-id');
-            console.log(currentKey)
             let newMessage = $('#edit-post').val();
             database.ref(`posts/${USER_ID}/${currentKey}`).update({'message': newMessage});
             $(this).attr('data-dismiss', 'modal')
