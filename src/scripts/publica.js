@@ -87,6 +87,7 @@ $(document).ready(function () {
                 database.ref(`users/${USER_ID}`).on('value', function (snapshot) {
                     let user = snapshot.val();
                     messagePost(childData.date, childData.message, user)
+                    console.log(user)
                     $('#navbarDropdown').html(user.name);
                     $('#profile-pic-navbar').attr('src', user.pic);
                 })
