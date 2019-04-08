@@ -101,7 +101,7 @@ $(document).ready(function () {
         })
 
 
-    $('#btn-share').click(function (event) {
+    function btnShare() {
         event.preventDefault();
 
         let userText = $('#user-message').val();
@@ -112,15 +112,15 @@ $(document).ready(function () {
             date: dataPost
         });
 
-
-      database.ref(`posts/${USER_ID}`).push({
-          message: userText,
-          date: dataPost
-      });
-      database.ref(`users/${USER_ID}`).once('value', function (snapshot) {
-        let user = snapshot.val();
-      messagePost (hourDate(), userText, user)
-      })
+        database.ref(`posts/${USER_ID}`).push({
+            message: userText,
+            date: dataPost
+        });
+        
+        database.ref(`users/${USER_ID}`).once('value', function (snapshot) {
+          let user = snapshot.val();
+        messagePost (hourDate(), userText, user)
+        })
     }
 
     function checkNumberDate(number) {
