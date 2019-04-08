@@ -20,15 +20,14 @@ $(document).ready(function () {
 
     $('#btn-search').click(function(e){
       e.preventDefault();
-      let input = $('#input-search');
-      if (input.hasClass('hidden')){
-      input.removeClass('hidden');
+      if ($('#input-search').hasClass('hidden')){
+      $('#input-search').removeClass('hidden');
     } else {
-      input.addClass('hidden');
+      $('#input-search').addClass('hidden');
     }
     });
 
-    $('#option-profile, #profile-pic-nav').attr('href', `profile.html?id=${USER_ID}`);
+    $('#option-profile').attr('href', `profile.html?id=${USER_ID}`);
 
     function messagePost(date, message, user) {
         $('#posts-container').append(`
@@ -52,7 +51,11 @@ $(document).ready(function () {
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
                             <a class="dropdown-item" href="#">Salvar</a>
-                            <a class="dropdown-item" href="#">Esconder</a>
+                            <a class="dropdown-item" href="#">Editar</a>
+                            <a class="dropdown-item" href="#">Excluir</a>
+
+                            <a class="dropdown-item" href="#"data-posts-id=${childKey}>Excluir<span>${childData.message}</span></a>
+
                             <a class="dropdown-item" href="#">Excluir</a>
                         </div>
                     </div>
@@ -74,7 +77,12 @@ $(document).ready(function () {
             <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
         </div>
     </div>`
-        )
+        );
+        $(`a[data-posts-id="${childKey}"]`).click(function() {
+            database.ref("posts/" + USER_ID + "/" + childKey).remove();
+            // console.log("teste remove");
+            $(this).parent().remove();
+        });
     }
 
     // $('.profile-link').click(function() { window.location = (`profile.html?id=${USER_ID}`) })
@@ -88,26 +96,31 @@ $(document).ready(function () {
                     let user = snapshot.val();
                     messagePost(childData.date, childData.message, user)
                     $('#navbarDropdown').html(user.name);
-                    $('#profile-pic-navbar').attr('src', user.pic);
                 })
             })
         })
 
-    function btnShare(e) {
-      e.preventDefault();
 
-      let userText = $('#user-message').val();
-      let dataPost = hourDate();
-      $('#user-message').val('');
+    function btnShare() {
+        event.preventDefault();
 
-      database.ref(`posts/${USER_ID}`).push({
-          message: userText,
-          date: dataPost
-      });
-      database.ref(`users/${USER_ID}`).once('value', function (snapshot) {
-        let user = snapshot.val();
-      messagePost (hourDate(), userText, user)
-      })
+        let userText = $('#user-message').val();
+        let dataPost = hourDate();
+
+        let postFromDB = database.ref(`posts/${USER_ID}`).push({
+            message: userText,
+            date: dataPost
+        });
+
+        database.ref(`posts/${USER_ID}`).push({
+            message: userText,
+            date: dataPost
+        });
+        
+        database.ref(`users/${USER_ID}`).once('value', function (snapshot) {
+          let user = snapshot.val();
+        messagePost (hourDate(), userText, user)
+        })
     }
 
     function checkNumberDate(number) {
