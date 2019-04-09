@@ -8,6 +8,12 @@ body {
   background-color: #F7F2FA;
 }
 
+.style-filter {
+  background-color: #F7F7F7;
+  border-radius: 10px;
+  margin: 10px 0 0;
+}
+
 .textarea {
   outline: none;
   border-radius: 5px;
