@@ -36,17 +36,6 @@ $(document).ready(function () {
     })
   })
 
-  // necessário pesquisar sobre sdk admin do firebase pra isso funcionar \/
-
-  // admin.auth().getUser(USER_ID)
-  //     .then(function (userRecord) {
-  //         // See the UserRecord reference doc for the contents of userRecord.
-  //         console.log("Successfully fetched user data:", userRecord.toJSON());
-  //     })
-  //     .catch(function (error) {
-  //         console.log("Error fetching user data:", error);
-  //     });
-
   $('#btn-search').click(function (e) {
     e.preventDefault();
     let input = $('#input-search');
@@ -101,6 +90,9 @@ $(document).ready(function () {
         </div>
     </div>`);
 
+    // .on("child_added", function(snapshot) {
+    //   console.log(snapshot.key);
+
     $('.profile-pic-posts').attr('src', user.pic);
 
     $(`a[data-like-id=${key}]`).click(function (e) {
@@ -108,16 +100,29 @@ $(document).ready(function () {
       let currentKey = $(this).attr('data-like-id');
       let likesRef = `likes/${USER_ID}/${currentKey}`;
       let databaseLikesAddress = database.ref(`${likesRef}/users`);
+      // let dataSearch = databaseLikesAddress.orderByChild('uid').equalTo(USER_ID);
+      // console.log(dataSearch);
+      // if (dataSearch.orderByCalled_) {
+      //   dataSearch.on('child_added', function (snapshot) {
+      //     snapshot.ref().remove();
+      //     console.log(snapshot)
+      //   })
+      // } else {
+      //   console.log('deu errado')
+      //   databaseLikesAddress.set({
+      //     uid: USER_ID
+      //   })
+      // }
+
       databaseLikesAddress.set({
         uid: USER_ID
-      }).then(function () {
+      })
         databaseLikesAddress.once('value', function (snapshot) {
           let countLikes = snapshot.numChildren();
           database.ref(`${likesRef}`).update({
             countLikes: countLikes
           })
           $(`span[data-counter-id=${currentKey}]`).html(countLikes);
-        });
       });
     })
 
