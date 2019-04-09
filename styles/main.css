@@ -164,6 +164,10 @@ span i.fas, span i.far {
 	color: white;
 }
 
+.btn-share:disabled, .btn-share:disabled:hover {
+	background-color: rgb(173, 158, 104);
+}
+
 .btn-share:hover {
 	background-color: #FFD234;
 }
