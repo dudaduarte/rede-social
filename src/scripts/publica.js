@@ -228,7 +228,7 @@ $(document).ready(function () {
             $('#btnGroupDrop1 > i').addClass('fa-users');
         }
 
-        $('#btnMessageVisibility').attr('data-filter') = visibility;
+        $('#btnMessageVisibility').attr('data-filter', visibility);
     });
 
     $('#btnFilterVisibility > a').on('click', function(){
