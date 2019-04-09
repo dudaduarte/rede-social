@@ -1,0 +1,58 @@
+@media screen and (min-width: 360px){
+   /* formulario de registro */
+
+    .container{  
+      background-color:  #984BDC;
+      background-repeat: no-repeat;
+      height: 100%;
+      width: 100%;
+    
+     
+                 
+    }   
+    .block{
+         position: absolute;
+         z-index: 2; 
+         
+       } 
+       
+
+      
+   
+   
+    /* painel de preenchimento */
+   /* .mochila{
+    width: 100%;
+    position: relative;
+
+   } */
+/*      
+     
+       margin-block-end: 2rem;
+       position: absolute;
+
+    } */
+
+    
+   
+
+
+ @media screen and (min-width: 768px) {
+    .container{
+       background-color:  #984BDC;
+       background-image: url('../images/background-icons-media-768.svg');
+       background-repeat: no-repeat;
+       background-size: contain;
+       background-size: cover;
+    }
+  }
+     
+@media screen and (min-width: 1382px){
+    
+    .form-group{
+       background-color:  #984BDC;
+       background-image: url('../images/background-icons-media-768.svg');
+       background-repeat: no-repeat;
+      background-size: 100%;
+    }
+  }
