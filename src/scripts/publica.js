@@ -28,7 +28,7 @@ $(document).ready(function () {
           if (snapshot.val()) {
             countLikes = snapshot.val().countLikes;
           }
-          messagePost(childData.date, childData.message, user, childKey, countLikes)
+          messagePost(childData.date, childData.message, user, childData.visibility, childKey, countLikes)
           $('#navbarDropdown').html(user.name);
           $('#profile-pic-navbar').attr('src', user.pic);
         })
@@ -57,9 +57,9 @@ $(document).ready(function () {
     }
   });
 
-  function messagePost(date, message, user, key, likes) {
+  function messagePost(date, message, user, visibility, key, likes) {
     $('#posts-container').append(`
-        <div class="card gedf-card marg" data-div="${key}">
+        <div class="card gedf-card marg ${visibility}" data-div="${key}">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
@@ -84,7 +84,6 @@ $(document).ready(function () {
                     </div>
                 </div>
             </div>
-    
         </div>
     
         <div class="card-body">
@@ -149,16 +148,22 @@ $(document).ready(function () {
 
     let userText = $('#user-message').val();
     let dataPost = hourDate();
+    let messageVisibility = 'public';
+    if ($('#btnMessageVisibility').hasClass('private')) {
+      messageVisibility = 'private';
+    }
+
     $('#user-message').val('');
 
     let postFromDB = database.ref(`posts/${USER_ID}`).push({
       message: userText,
-      date: dataPost
+      date: dataPost,
+      visibility: messageVisibility
     });
 
     database.ref(`users/${USER_ID}`).once('value', function (snapshot) {
       let user = snapshot.val();
-      messagePost(hourDate(), userText, user, postFromDB.key, 0)
+      messagePost(hourDate(), userText, user, messageVisibility, postFromDB.key, 0)
     });
   }
 
@@ -198,16 +203,44 @@ $(document).ready(function () {
     return number;
   }
 
-  function hourDate() {
+    function hourDate() {
+        let datePost = new Date();
+        let dayPost = datePost.getDate().toString();
+        let monthPost = (datePost.getMonth()+1).toString();
+        let yearPost = datePost.getFullYear();
+        let hourPost = datePost.getHours().toString();
+        let minutesPost = datePost.getMinutes().toString();
+        let hourMinutePost = `${checkNumberDate(dayPost)}/${checkNumberDate(monthPost)}/${yearPost} <i class="fa fa-clock-o"></i> ${checkNumberDate(hourPost)}h${checkNumberDate(minutesPost)}`;
+      return hourMinutePost;
+    }
 
-    let datePost = new Date();
-    let dayPost = datePost.getDate().toString();
-    let monthPost = datePost.getMonth().toString();
-    let yearPost = datePost.getFullYear();
-    let hourPost = datePost.getHours().toString();
-    let minutesPost = datePost.getMinutes().toString();
-    let hourMinutePost = `${checkNumberDate(dayPost)}/${checkNumberDate(monthPost)}/${yearPost} - ${checkNumberDate(hourPost)}:${checkNumberDate(minutesPost)}`;
+    $('#btnMessageVisibility > a').on('click', function(){
+        var visibility = $(this).attr('data-filter');
+        
+        $('#btnGroupDrop1 > i').removeClass('fa-globe');
+        $('#btnGroupDrop1 > i').removeClass('fa-users');
 
-    return hourMinutePost;
-  }
+        if(visibility == 'public'){
+            $('#btnGroupDrop1 > i').addClass('fa-globe');
+        }else{
+            $('#btnGroupDrop1 > i').addClass('fa-users');
+        }
+
+        $('#btnMessageVisibility').removeClass('pubic');
+        $('#btnMessageVisibility').removeClass('private');
+
+        $('#btnMessageVisibility').addClass(visibility);
+    });
+
+    $('#btnFilterVisibility > a').on('click', function(){
+        var visibility = $(this).attr('data-filter');
+
+        $('#posts-container > div').each(function(){
+            if(visibility == 'all' || $(this).hasClass(visibility)){
+                $(this).show();
+            }else{
+                $(this).hide();
+            }
+        });
+    });
 });
