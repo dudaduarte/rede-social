@@ -21,7 +21,7 @@ $(document).ready(function () {
   firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
       console.log('logged in')
-      console.log(firebaseUser);
+      let userId = firebaseUser.uid;
     } else {
       console.log('not logged in');
     }
