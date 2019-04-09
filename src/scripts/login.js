@@ -18,15 +18,6 @@ $(document).ready(function () {
 
   });
 
-  firebase.auth().onAuthStateChanged(firebaseUser => {
-    if (firebaseUser) {
-      console.log('logged in')
-      console.log(firebaseUser);
-    } else {
-      console.log('not logged in');
-    }
-  });
-
   $('#login-submit').click(login);
   $('#register-submit').click(createUser);
   $('#button-logout').click(logout);
@@ -43,14 +34,12 @@ $(document).ready(function () {
       })
       .catch(function (error) {
         let errorMessage = error.message;
-
-        alert(`Erro: ${errorMessage}`);
+        bootbox.alert(`Erro: ${errorMessage}`);
       })
 
-    //desativa b.form-btn btn register caso seja vazio
     $('.register-submit').submit(function () {
       if ($('.login-password').val() == null || $('.login-submit').val() == "") {
-        alert('Campos Obrigatórios');
+        bootbox.alert('Campos Obrigatórios.');
         return false;
       }
     });
@@ -72,25 +61,26 @@ $(document).ready(function () {
           firebase.database().ref(`users/${userId}`).set({
             name: newUserName,
             email: email,
-            date: newUserDate
-          }).then(function() {
+            date: newUserDate,
+            pic: 'https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png'
+          }).then(function () {
             window.location = `feed.html?id=${userId}`;
           })
         })
         .catch(function (error) {
           let errorMessage = error.message;
           if (errorMessage == 'auth/weak-password') {
-            alert('Erro: a senha é muito fraca.')
+            bootbox.alert('Erro: a senha é muito fraca.');
           } else {
-            alert(`Erro: ${errorMessage}`);
+            bootbox.alert(`Erro: ${errorMessage}`);
           }
         })
     } else {
-      alert('Senhas digitadas não correspondem entre si. Digite novamente.')
+      bootbox.alert('Senhas digitadas não correspondem entre si. Digite novamente.');
     }
   }
-  
-  const authGoogleButton = $('#authGoogleButton') 
+
+  const authGoogleButton = $('#authGoogleButton')
 
   $('#authGoogleButton').click(function (event) {
     event.preventDefault();
@@ -98,7 +88,7 @@ $(document).ready(function () {
     signIn(provider);
   });
 
-   const authFacebookButton = $("#authFacebookButton")
+  const authFacebookButton = $("#authFacebookButton")
 
   $('#authFacebookButton').click(function (event) {
     event.preventDefault();
@@ -109,16 +99,15 @@ $(document).ready(function () {
   function signIn(provider) {
     firebase.auth()
       .signInWithPopup(provider)
-      .then(function(result) {
+      .then(function (result) {
         let token = result.credential.accessToken;
         let user = result.user;
         window.location = 'feed.html';
-        alert(`Bem-vindo ${displayName}`);
       }).catch(function (error) {
         console.log(error);
-        alert('Falha na autenticação');
-    });
-  
+        bootbox.alert('Falha na autenticação');
+      });
+
   }
 
   function logout() {
@@ -127,9 +116,6 @@ $(document).ready(function () {
       .then(function () {
         window.location = 'index.html';
       })
-      .catch(function (error) {
-        // An error happened.
-      });
   }
 
 });
