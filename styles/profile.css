@@ -33,7 +33,10 @@ body{
     background-color:#FAFAFA;
   }
   .follow{    
-    margin-top:70px;   
+    margin-top:40px;   
+  }
+  .bio-style {
+    margin-top: 20px;
   }
   .user-detail-row{
     margin:0px; 

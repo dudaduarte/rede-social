@@ -91,6 +91,7 @@
                                 class="rounded-circle">
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
+                            <section id="user-bio" class="bio-style"></section>
                             <button id="btn-contact" (click)="clearModal()" data-toggle="modal" data-target="#contact"
                                 class="btn btn-success btn-block follow">Contactarme</button>
                             <button class="btn btn-warning btn-block">Descargar Curriculum</button>
@@ -111,7 +112,9 @@
                             <div class="row">
                                 <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
                                     <h1 id="display-name"></h1>
-                                    <h5 id="display-status"></h5>
+                                    <section id="status-container">
+                                        <h5 id="display-status"></h5>
+                                    </section>
                                 </div>
                                 <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
                                     <a href="/search" class="btn btn-primary btn-block">Adicionar à Rede</a>
@@ -270,10 +273,10 @@
 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="./src/scripts/profile.js"></script>
     <script src="./src/scripts/config.js"></script>
     <script src="./src/scripts/publica.js"></script>
     <script src="./src/scripts/login.js"></script>
-    <script src="./src/scripts/profile.js"></script>
 </body>
 
 </html>
