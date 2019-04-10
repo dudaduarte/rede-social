@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ConectVest</title>
+    <title>ConnectVest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/profile.css">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css">
@@ -30,7 +30,7 @@
 
     <header>
         <nav class="df jc-fe navbar navbar-expand-lg navbar-dark bg-purple">
-            <a id="logo-navbar" class="navbar-brand" href="#"><img src="./images/logo-conectvest-01.png"
+            <a id="logo-navbar" class="navbar-brand" href="#"><img src="./images/logo-text.svg"
                     class='style-logo-feed'></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
                 aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
@@ -81,7 +81,7 @@
     <div class="container main-secction">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 image-section">
-                <img src="https://png.pngtree.com/thumb_back/fw800/back_pic/00/08/57/41562ad4a92b16a.jpg">
+                <img src="images/background-profile.jpg">
             </div>
             <div class="row user-left-part">
                 <div class="col-md-3 col-sm-3 col-xs-12 user-profil-part pull-left">
@@ -93,16 +93,9 @@
                         <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
                             <section id="user-bio" class="bio-style"></section>
                             <button id="btn-contact" (click)="clearModal()" data-toggle="modal" data-target="#contact"
-                                class="btn btn-success btn-block follow">Enviar Mensagem</button>
+                                class="btn btn-success btn-block follow">Contato</button>
+                            <button class="btn btn-warning btn-block">Interesses</button>
                         </div>
-                        <div class="row user-detail-row">
-                            <div class="col-md-12 col-sm-12 user-detail-section2">
-                                <div class="border"></div>
-                                <p>FOLLOWER</p>
-                                <span>320</span>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-12 pull-right profile-right-section">
@@ -116,7 +109,7 @@
                                     </section>
                                 </div>
                                 <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
-                                    <a href="/search" class="btn btn-primary btn-block">Adicionar à Rede</a>
+                                    <a href="#profile" class="color-btn btn btn-primary btn-block">Adicionar à Rede</a>
                                 </div>
                             </div>
                         </div>
@@ -125,8 +118,8 @@
                                 <div class="col-md-8">
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="#profile" role="tab" data-toggle="tab"><i
-                                                    class="fas fa-user-circle"></i> Perfil</a>
+                                            <a class="color-text nav-link active" href="#" id="profile-navbar" role="tab" data-toggle="tab"><i
+                                                    class="color-text fas fa-user-circle"></i> Perfil</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#posts" role="tab" data-toggle="tab"><i
@@ -163,7 +156,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <label>Instituição de Ensino</label>
+                                                    <label>Escola</label>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p id="display-school"></p>

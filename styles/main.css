@@ -4,7 +4,7 @@
   font-size: 16px;
 }
 
-body {
+.body {
   background-color: #F7F2FA;
 }
 
@@ -179,16 +179,16 @@ span i.fas, span i.far {
 }
 
 .btn-share {
-  background-color: rgb(230, 192, 59);
+  background-color: #FFD234;
   color: white;
 }
 
 .btn-share:disabled, .btn-share:disabled:hover {
-  background-color: rgb(173, 158, 104);
+  background-color: #DBB630;
 }
 
 .btn-share:hover {
-  background-color: #FFD234;
+  background-color: #D12D90;
 }
 
 .input-form {
@@ -253,7 +253,6 @@ span i.fas, span i.far {
 
 .background-container {
   background-color: #F7F2FA;
-  <<<<<<< HEAD
 }
 
 .pic-navbar {
@@ -261,7 +260,25 @@ span i.fas, span i.far {
   margin: 0 10px;
 }
 
-=======
+.color-icons {
+  color: #984BDC;
 }
 
->>>>>>>f077f39106554a46d8559f7f52204e6bb9a41a31
+.color-icons:hover {
+  color: #D12D90;
+}
+
+.color-text {
+  color: #727376;
+}
+
+.color-text:hover {
+  color: #984BDC;
+}
+
+
+
+
+
+
+

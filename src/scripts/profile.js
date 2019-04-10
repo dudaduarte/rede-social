@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-    $('#logo-navbar, #home-navbar').attr('href', `feed.html?id=${USER_ID}`);
-
     database.ref(`users/${USER_ID}`).once('value', function (snapshot) {
         let user = snapshot.val();
         
