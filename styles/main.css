@@ -13,10 +13,9 @@ a:hover {
 }
 
 .section-filter {
-  background-color: #F7F7F7;
+  background-color: white;
   border-radius: 10px;
   margin: 10px 0 0;
-  color: white;
   text-align: center;
 }
 
@@ -25,9 +24,6 @@ a:hover {
 }
 
 .style-filter {
-  background-color: #984BDC;
-  width: 15%;
-  overflow: hidden;
   border-radius: 10px;
 }
 
@@ -160,6 +156,30 @@ span i.fas, span i.far {
 .style-logo-feed {
   width: 16vw;
   padding: 2px;
+}
+
+button.btn-xl {
+  width: 60px;
+  height: 60px;
+  border-radius: 35px;
+  line-height: 1.33;
+  background-color: #FFD234;
+  color: #984BDC;
+  border: 5px solid #984BDC;
+  transform: scale(1.3);
+  margin: -25px 0 12px;
+}
+
+.container-button-textbox {
+  transition: .2s;
+}
+
+.container-button-textbox:hover {
+  transform: scale(1.0);
+}
+
+.fa-plus, .fa-minus {
+  font-size: 30px;
 }
 
 .btn-feed {

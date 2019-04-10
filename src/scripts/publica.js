@@ -135,6 +135,21 @@ $(document).ready(function () {
 
   }
 
+  $('#btn-show-textbox').click(btnShowTextbox);
+
+  function btnShowTextbox(e) {
+    e.preventDefault();
+    if (!$('#textbox').hasClass('gedf-card')) {
+    $('#textbox').addClass('card gedf-card');
+    $('#textbox').removeClass('hidden');
+    $('#btn-show-textbox').html('<i class="fas fa-minus"></i>');
+  } else {
+    $('#textbox').removeClass('card gedf-card');
+    $('#textbox').addClass('hidden');
+    $('#btn-show-textbox').html('<i class="fas fa-plus"></i>');
+  }
+  }
+
   function btnShare(e) {
     e.preventDefault();
 
