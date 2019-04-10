@@ -8,6 +8,10 @@ body {
   background-color: #F7F2FA;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 .style-filter {
   background-color: #F7F7F7;
   border-radius: 10px;

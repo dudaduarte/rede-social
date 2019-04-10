@@ -1,16 +1,7 @@
 let database = firebase.database();
 let USER_ID = window.location.search.match(/\?id=(.*)/)[1];
-// let USER_ID = firebase.auth().currentUser.uid
 
 $(document).ready(function () {
-
-  // function currentUser() {
-  //   firebase.auth().onAuthStateChanged(firebaseUser => {
-  //     if (firebaseUser) {
-  //       return firebaseUser.uid;
-  //     }
-  //   });
-  // }
 
   $('#logo-navbar, #home-navbar').attr('href', `feed.html?id=${USER_ID}`);
   $('#option-profile, #profile-pic-nav').attr('href', `profile.html?id=${USER_ID}`);
@@ -48,7 +39,7 @@ $(document).ready(function () {
 
   function messagePost(date, message, user, visibility, key, likes) {
     $('#posts-container').append(`
-        <div class="card gedf-card marg ${visibility}" data-div="${key}">
+        <div class="card gedf-card marg" data-div="${key}" data-filter="${visibility}">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center">
@@ -89,9 +80,6 @@ $(document).ready(function () {
             <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
         </div>
     </div>`);
-
-    // .on("child_added", function(snapshot) {
-    //   console.log(snapshot.key);
 
     $('.profile-pic-posts').attr('src', user.pic);
 
@@ -154,7 +142,7 @@ $(document).ready(function () {
     let userText = $('#user-message').val();
     let dataPost = hourDate();
     let messageVisibility = 'public';
-    if ($('#btnMessageVisibility').hasClass('private')) {
+    if ($('#btnMessageVisibility').attr('data-filter') === 'private') {
       messageVisibility = 'private';
     }
 
@@ -221,30 +209,28 @@ $(document).ready(function () {
 
     $('#btnMessageVisibility > a').on('click', function(){
         var visibility = $(this).attr('data-filter');
-        
+
         $('#btnGroupDrop1 > i').removeClass('fa-globe');
         $('#btnGroupDrop1 > i').removeClass('fa-users');
-
-        if(visibility == 'public'){
+        if(visibility === 'public'){
             $('#btnGroupDrop1 > i').addClass('fa-globe');
         }else{
             $('#btnGroupDrop1 > i').addClass('fa-users');
         }
 
-        $('#btnMessageVisibility').removeClass('pubic');
-        $('#btnMessageVisibility').removeClass('private');
-
-        $('#btnMessageVisibility').addClass(visibility);
+        $('#btnMessageVisibility').attr('data-filter', visibility);
     });
 
     $('#btnFilterVisibility > a').on('click', function(){
         var visibility = $(this).attr('data-filter');
 
         $('#posts-container > div').each(function(){
-            if(visibility == 'all' || $(this).hasClass(visibility)){
-                $(this).show();
-            }else{
-                $(this).hide();
+            if($(this).attr('data-filter')) {
+                if(visibility === 'all' || $(this).attr('data-filter') === visibility){
+                    $(this).show();
+                }else{
+                    $(this).hide();
+                }
             }
         });
     });
