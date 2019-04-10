@@ -28,55 +28,58 @@
 
 <body>
 
-    <header>
-        <nav class="df jc-fe navbar navbar-expand-lg navbar-dark bg-purple">
-            <a id="logo-navbar" class="navbar-brand" href="#"><img src="./images/logo-text.svg"
-                    class='style-logo-feed'></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
-                aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="jc-fe collapse navbar-collapse" id="conteudoNavbarSuportado">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
+        <header class="header">
+                <nav class="df jc-fe navbar navbar-expand-lg navbar-dark bg-purple">
+                  <a id="logo-navbar" class="navbar-brand" href="#"><img src="./images/logo-text.svg"
+                      class='style-logo-feed'></a>
+                  <button class="navbar-toggler brand-size" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+                    aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+             
+                  <div class="jc-fe collapse navbar-collapse" id="conteudoNavbarSuportado">
+                    <ul class="navbar-nav">
+                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <!-- Dropdown -->
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <!-- Dropdown -->
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" id="option-profile" href="#">Perfil</a>
-                            <a class="dropdown-item" href="#">Configurações</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" id="button-logout">Sair</a>
+                          <a class="dropdown-item" id="option-profile" href="#">Perfil</a>
+                          <a class="dropdown-item" href="#">Configurações</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="btn-close dropdown-item" href="#" id="button-logout">Sair</a>
                         </div>
-                    </li>
-                    <li class="nav-item"> <a id="profile-pic-nav"><img id="profile-pic-navbar"
-                                class="rounded-circle pic-navbar"></a></li>
-                    <li class="nav-item active">
-                        <a id="home-navbar" class="nav-link" href="#">Home <span class="sr-only">(página
-                                atual)</span></a>
-                    </li>
-                    <li class="nav-item active">
+                      </li>
+                      <li class="nav-item"> <a href="#" id="profile-pic-nav"><img id="profile-pic-navbar"
+                            class="rounded-circle pic-navbar"></a></li>
+                      <li class="nav-item active">
+                        <a id="home-navbar" class="nav-link home-navbar" href="#">Home <span class="sr-only">(página
+                            atual)</span></a>
+                      </li>
+                      <li class="nav-item active">
+                        <a id="home-navbar" class="nav-link profile-navbar" href="#">Perfil <span class="sr-only">(página
+                            atual)</span></a>
+                      </li>
+                      <li class="nav-item active">
                         <a id="home-navbar" class="nav-link" href="#">Fóruns<span class="sr-only">(página
-                                atual)</span></a>
-                    </li>
-                    <li class="nav-item active">
+                            atual)</span></a>
+                      </li>
+                      <li class="nav-item active">
                         <a id="home-navbar" class="nav-link" href="#">Cursos<span class="sr-only">(página
-                                atual)</span></a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <div class="hidden" id="input-search">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar"
-                            aria-label="Pesquisar">
-                    </div>
-                    <button class="btn-feed my-2 my-sm-0 btn-search btn-circle" id="btn-search" type="submit"><i
-                            class="fas fa-search"></i></button>
-                </form>
-            </div>
-        </nav>
-    </header>
+                            atual)</span></a>
+                      </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                      <div class="hidden" id="input-search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                      </div>
+                      <button class="btn-feed my-2 my-sm-0 btn-search btn-circle" id="btn-search" type="submit"><i
+                          class="fas fa-search"></i></button>
+                    </form>
+                  </div>
+                </nav>
+              </header>
 
     <div class="container main-secction">
         <div class="row">
@@ -91,6 +94,7 @@
                                 class="rounded-circle">
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
+                            <section id="user-bio" class="bio-style"></section>
                             <button id="btn-contact" (click)="clearModal()" data-toggle="modal" data-target="#contact"
                                 class="btn btn-success btn-block follow">Contato</button>
                             <button class="btn btn-warning btn-block">Interesses</button>
@@ -102,7 +106,10 @@
                         <div class="col-md-12 profile-header">
                             <div class="row">
                                 <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
-                                    <h1 class="color-text" id="display-name"></h1>
+                                    <h1 id="display-name"></h1>
+                                    <section id="status-container">
+                                        <h5 id="display-status"></h5>
+                                    </section>
                                 </div>
                                 <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
                                     <a href="#profile" class="color-btn btn btn-primary btn-block">Adicionar à Rede</a>
@@ -114,13 +121,15 @@
                                 <div class="col-md-8">
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li class="nav-item">
-                                            <a class="color-text nav-link active" href="#profile" role="tab" data-toggle="tab"><i
+                                            <a class="color-text nav-link active" href="#profile" id="profile-navbar" role="tab" data-toggle="tab"><i
                                                     class="color-text fas fa-user-circle"></i> Perfil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="color-text nav-link" href="#buzz" role="tab" data-toggle="tab"><i
-                                                    class="color-text fas fa-info-circle"></i>Pontuação</a>
+                                            <a class="nav-link" href="#cursos" role="tab" data-toggle="tab"><i class="fas fa-book-open"></i> Meus Cursos</a>
                                         </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="#foruns" role="tab" data-toggle="tab"><i class="fas fa-users"></i> Meus Fóruns</a>
+                                            </li>
                                     </ul>
 
                                     <!-- Infos de perfil -->
@@ -159,40 +168,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div role="tabpanel" class="tab-pane fade" id="buzz">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Física</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Muito bom</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Matemática</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Muito bom</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Português</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Bom</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Cursando</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>3 meses</p>
-                                                </div>
-                                            </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="cursos">
                                         </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="foruns">
+                                            </div>
 
                                     </div>
 
@@ -246,10 +225,10 @@
 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="./src/scripts/profile.js"></script>
     <script src="./src/scripts/config.js"></script>
     <script src="./src/scripts/publica.js"></script>
     <script src="./src/scripts/login.js"></script>
-    <script src="./src/scripts/profile.js"></script>
 </body>
 
 </html>

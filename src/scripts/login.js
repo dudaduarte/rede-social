@@ -107,7 +107,6 @@ $(document).ready(function () {
         let user = result.user;
         window.location = 'feed.html';
       }).catch(function (error) {
-        console.log(error);
         bootbox.alert('Falha na autenticação');
       });
 
