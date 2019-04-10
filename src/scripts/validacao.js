@@ -1,10 +1,3 @@
-// //desativa b.form-btn btn register caso seja vazio
-//     $('#register-submit').submit(function() {
-//       if($('.login-password').val()== null || $('.login-submit').val() ==""){
-//       return false;
-//       }
-//     });
-    
 $(document).ready( function() {
     $('#register-form').validate({
       rules:{ 
