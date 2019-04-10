@@ -28,55 +28,58 @@
 
 <body>
 
-    <header>
-        <nav class="df jc-fe navbar navbar-expand-lg navbar-dark bg-purple">
-            <a id="logo-navbar" class="navbar-brand" href="#"><img src="./images/logo-text.svg"
-                    class='style-logo-feed'></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
-                aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="jc-fe collapse navbar-collapse" id="conteudoNavbarSuportado">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
+        <header class="header">
+                <nav class="df jc-fe navbar navbar-expand-lg navbar-dark bg-purple">
+                  <a id="logo-navbar" class="navbar-brand" href="#"><img src="./images/logo-text.svg"
+                      class='style-logo-feed'></a>
+                  <button class="navbar-toggler brand-size" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+                    aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+             
+                  <div class="jc-fe collapse navbar-collapse" id="conteudoNavbarSuportado">
+                    <ul class="navbar-nav">
+                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <!-- Dropdown -->
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <!-- Dropdown -->
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" id="option-profile" href="#">Perfil</a>
-                            <a class="dropdown-item" href="#">Configurações</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" id="button-logout">Sair</a>
+                          <a class="dropdown-item" id="option-profile" href="#">Perfil</a>
+                          <a class="dropdown-item" href="#">Configurações</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="btn-close dropdown-item" href="#" id="button-logout">Sair</a>
                         </div>
-                    </li>
-                    <li class="nav-item"> <a id="profile-pic-nav"><img id="profile-pic-navbar"
-                                class="rounded-circle pic-navbar"></a></li>
-                    <li class="nav-item active">
-                        <a id="home-navbar" class="nav-link" href="#">Home <span class="sr-only">(página
-                                atual)</span></a>
-                    </li>
-                    <li class="nav-item active">
+                      </li>
+                      <li class="nav-item"> <a href="#" id="profile-pic-nav"><img id="profile-pic-navbar"
+                            class="rounded-circle pic-navbar"></a></li>
+                      <li class="nav-item active">
+                        <a id="home-navbar" class="nav-link home-navbar" href="#">Home <span class="sr-only">(página
+                            atual)</span></a>
+                      </li>
+                      <li class="nav-item active">
+                        <a id="home-navbar" class="nav-link profile-navbar" href="#">Perfil <span class="sr-only">(página
+                            atual)</span></a>
+                      </li>
+                      <li class="nav-item active">
                         <a id="home-navbar" class="nav-link" href="#">Fóruns<span class="sr-only">(página
-                                atual)</span></a>
-                    </li>
-                    <li class="nav-item active">
+                            atual)</span></a>
+                      </li>
+                      <li class="nav-item active">
                         <a id="home-navbar" class="nav-link" href="#">Cursos<span class="sr-only">(página
-                                atual)</span></a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <div class="hidden" id="input-search">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar"
-                            aria-label="Pesquisar">
-                    </div>
-                    <button class="btn-feed my-2 my-sm-0 btn-search btn-circle" id="btn-search" type="submit"><i
-                            class="fas fa-search"></i></button>
-                </form>
-            </div>
-        </nav>
-    </header>
+                            atual)</span></a>
+                      </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                      <div class="hidden" id="input-search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                      </div>
+                      <button class="btn-feed my-2 my-sm-0 btn-search btn-circle" id="btn-search" type="submit"><i
+                          class="fas fa-search"></i></button>
+                    </form>
+                  </div>
+                </nav>
+              </header>
 
     <div class="container main-secction">
         <div class="row">

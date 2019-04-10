@@ -20,6 +20,10 @@ a:hover {
   text-align: center;
 }
 
+.nav-link {
+  font-size: 18px;
+}
+
 .style-filter {
   background-color: #984BDC;
   width: 15%;
