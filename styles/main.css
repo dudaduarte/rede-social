@@ -182,6 +182,14 @@ button.btn-xl {
   font-size: 30px;
 }
 
+.fa-plus:hover, .fa-minus:hover {
+  color: #D12D90;
+}
+
+.fa-plus:active, .fa-minus:active {
+  color: #D12D90;
+}
+
 .btn-feed {
   display: inline-block;
   font-weight: 400;
