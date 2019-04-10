@@ -12,6 +12,4 @@ $(document).ready(function () {
         $('#display-pnumber').html(!user.pnumber? "Não disponível" : user.pnumber);
         $('#display-school').html(!user.school? "Não informado" : user.school);
     })
-
-
 })

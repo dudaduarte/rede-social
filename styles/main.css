@@ -39,6 +39,7 @@
 }
 
 .panel-login {
+  background-color: white;
   padding: 1em;
   border-radius: 70px;
   border-color: #ccc;
@@ -49,14 +50,13 @@
 
 .panel-login>.panel-heading {
   color: #00415d;
-  background-color: #fff;
   border-color: #fff;
   text-align: center;
 }
 
 .panel-login>.panel-heading a {
   text-decoration: none;
-  color: #666;
+  color: #35497D;
   font-weight: bold;
   font-size: 15px;
   -webkit-transition: all 0.1s linear;
@@ -65,7 +65,7 @@
 }
 
 .panel-login>.panel-heading a.active {
-  color: #644C93;
+  color: #D12D90;
   font-size: 18px;
 }
 
@@ -196,18 +196,18 @@ span i.fas, span i.far {
 }
 
 .form-btn {
-  background: #644C93 none repeat scroll 0 0;
+  background: #9D44DF none repeat scroll 0 0;
   border: medium none;
   border-radius: 50%;
   color: #ffffff;
-  width: 4em;
-  height: 4em;
+  width: 4rem;
+  height: 4rem;
   box-shadow: 0 2px 8px #d2d2d2;
   -moz-box-shadow: 0 2px 8px #d2d2d2;
   -webkit-box-shadow: 0 2px 8px #d2d2d2;
   text-align: center;
-  font-size: 14px;
   padding: 14px;
+  margin-left: 5px;
   outline: none;
   font-weight: normal;
   text-transform: uppercase;

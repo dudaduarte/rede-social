@@ -4,14 +4,6 @@ let USER_ID = window.location.search.match(/\?id=(.*)/)[1];
 
 $(document).ready(function () {
 
-  // function currentUser() {
-  //   firebase.auth().onAuthStateChanged(firebaseUser => {
-  //     if (firebaseUser) {
-  //       return firebaseUser.uid;
-  //     }
-  //   });
-  // }
-
   $('#logo-navbar, #home-navbar').attr('href', `feed.html?id=${USER_ID}`);
   $('#option-profile, #profile-pic-nav').attr('href', `profile.html?id=${USER_ID}`);
   $('#user-message').keyup(disableEnableButton);
@@ -36,17 +28,7 @@ $(document).ready(function () {
     })
   })
 
-  // necessário pesquisar sobre sdk admin do firebase pra isso funcionar \/
-
-  // admin.auth().getUser(USER_ID)
-  //     .then(function (userRecord) {
-  //         // See the UserRecord reference doc for the contents of userRecord.
-  //         console.log("Successfully fetched user data:", userRecord.toJSON());
-  //     })
-  //     .catch(function (error) {
-  //         console.log("Error fetching user data:", error);
-  //     });
-
+  
   $('#btn-search').click(function (e) {
     e.preventDefault();
     let input = $('#input-search');
@@ -56,6 +38,7 @@ $(document).ready(function () {
       input.addClass('hidden');
     }
   });
+
 
   function messagePost(date, message, user, key, likes) {
     $('#posts-container').append(`
@@ -104,6 +87,7 @@ $(document).ready(function () {
 
     $('.profile-pic-posts').attr('src', user.pic);
 
+
     $(`a[data-like-id=${key}]`).click(function (e) {
       e.preventDefault();
       let currentKey = $(this).attr('data-like-id');
@@ -122,10 +106,12 @@ $(document).ready(function () {
       });
     })
 
+
     $(`a[data-delete-id=${key}]`).click(function (e) {
       e.preventDefault();
       confirmRemove(key);
     });
+
 
     $(`a[data-edit-id=${key}]`).click(function () {
       $('#btn-send-modal').attr('data-send-id', key)
@@ -133,6 +119,7 @@ $(document).ready(function () {
         $('#edit-post').val(snapshot.val().message);
       })
     })
+
 
     $('#btn-send-modal').click(function () {
       let currentKey = $(this).attr('data-send-id');
@@ -143,6 +130,7 @@ $(document).ready(function () {
     })
 
   }
+
 
   function btnShare(e) {
     e.preventDefault();
@@ -161,6 +149,7 @@ $(document).ready(function () {
       messagePost(hourDate(), userText, user, postFromDB.key, 0)
     });
   }
+
 
   function confirmRemove(key) {
     bootbox.confirm({
@@ -183,6 +172,7 @@ $(document).ready(function () {
     });
   }
 
+
   function disableEnableButton() {
     if ($('#user-message').val().match(/\S+/)) {
       $('#btn-share').prop('disabled', false);
@@ -191,12 +181,14 @@ $(document).ready(function () {
     }
   }
 
+
   function checkNumberDate(number) {
     if (number.length < 2) {
       number = `0${number}`;
     }
     return number;
   }
+
 
   function hourDate() {
 

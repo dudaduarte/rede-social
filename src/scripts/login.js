@@ -80,6 +80,7 @@ $(document).ready(function () {
     }
   }
 
+
   const authGoogleButton = $('#authGoogleButton')
 
   $('#authGoogleButton').click(function (event) {
@@ -87,6 +88,7 @@ $(document).ready(function () {
     const provider = new firebase.auth.GoogleAuthProvider();
     signIn(provider);
   });
+
 
   const authFacebookButton = $("#authFacebookButton")
 
@@ -96,6 +98,7 @@ $(document).ready(function () {
     signIn(provider);
   });
 
+  
   function signIn(provider) {
     firebase.auth()
       .signInWithPopup(provider)
