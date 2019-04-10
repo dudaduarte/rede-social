@@ -32,6 +32,9 @@ body{
     padding-bottom:30px;
     background-color:#FAFAFA;
   }
+  .tab-pane {
+    padding: 1rem;
+  }
   .follow{    
     margin-top:40px;   
   }

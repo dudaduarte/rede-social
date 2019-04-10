@@ -12,10 +12,19 @@ a:hover {
   cursor: pointer;
 }
 
-.style-filter {
+.section-filter {
   background-color: #F7F7F7;
   border-radius: 10px;
   margin: 10px 0 0;
+  color: white;
+  text-align: center;
+}
+
+.style-filter {
+  background-color: #984BDC;
+  width: 15%;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .textarea {
