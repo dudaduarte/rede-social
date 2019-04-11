@@ -10,6 +10,11 @@ Iníciando:
 
 Partimos do desejo de atender nossos clientes os estudantes, pensando nos requisitos necessários o desenvolvimento do projeto. 
 Assuntos pertinentes à prova do Enem, com as disciplinas básicas do Ensino Médio, tais como: Matemática, Física, Química, História,     Língua Portuguesa, dentre outras.
+
+Pesquisa com usuários:
+
+![link](https://github.com/dudaduarte/rede-social/blob/master/personas.jpg)
+
     
 Quais requisitos seriam esses? 
 
@@ -35,9 +40,7 @@ A partir das pesquisas realizadas com nosso público alvo, identificamos suas ne
 
 Abaixo segue o protótipo corrigido de alta fidelidade:
 ![link](https://github.com/dudaduarte/rede-social/blob/master/prototipo-alta-fidelidade-1.jpg)
-![link](https://github.com/dudaduarte/rede-social/blob/master/prototipo-alta-fidelidade-1.jpg)
-
-
+![link](https://github.com/dudaduarte/rede-social/blob/master/prototipo-alta-fidelidade-2.jpg)
 
 Foram utilizadas as seguintes ferramentas:
 
@@ -48,21 +51,16 @@ https://trello.com/b/nOKscZwX/rede-social-educa%C3%A7%C3%A3o
 
 Para a comunicação com o trio utilizamos o Slack: 
 https://claseslaboratoria.slack.com/messages/GH2JN8J2G/team/
-
-Endereço do projeto no Git:
-https://github.com/dudaduarte/rede-social.git
-
-    
-    Interação 
- 
-Para comunicação com o Squad 5 WhatsApp
 https://web.whatsapp.com
 
 Para montar as páginas dos nossos protótipos usamos:
 Illustrator
 www.marvel.com.br
-	
-    Para o teste de usabilidade 
+
+Endereço do projeto no Git:
+https://github.com/dudaduarte/rede-social.git
+
+
 
     Test.Usabilidade1.png
     Test.Usabilidade2.png
