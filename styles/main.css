@@ -58,6 +58,7 @@ a:hover {
 }
 
 .panel-login {
+  background-color: white;
   padding: 1em;
   border-radius: 70px;
   border-color: #ccc;
@@ -68,14 +69,12 @@ a:hover {
 
 .panel-login>.panel-heading {
   color: #00415d;
-  background-color: #fff;
   border-color: #fff;
   text-align: center;
 }
-
 .panel-login>.panel-heading a {
   text-decoration: none;
-  color: #666;
+  color: #35497D;
   font-weight: bold;
   font-size: 15px;
   -webkit-transition: all 0.1s linear;
@@ -84,7 +83,7 @@ a:hover {
 }
 
 .panel-login>.panel-heading a.active {
-  color: #644C93;
+  color: #D12D90;
   font-size: 18px;
 }
 
@@ -170,6 +169,14 @@ button.btn-xl {
   margin: -25px 0 12px;
 }
 
+.card-foruns {
+  padding: 10px;
+  background-color: #FFD234;
+  border-radius: 10px;
+  color: white;
+  margin: 15px 0;
+}
+
 .container-button-textbox {
   transition: .2s;
 }
@@ -215,8 +222,8 @@ button.btn-xl {
 }
 
 .btn-search {
-  background-color: #5CC6D0;
-  color: white;
+  background-color: #FFD234;
+  color: #984BDC;
 }
 
 .btn-share {
@@ -247,18 +254,18 @@ button.btn-xl {
 }
 
 .form-btn {
-  background: #644C93 none repeat scroll 0 0;
+  background: #9D44DF none repeat scroll 0 0;
   border: medium none;
   border-radius: 50%;
   color: #ffffff;
-  width: 4em;
-  height: 4em;
+  width: 4rem;
+  height: 4rem;
   box-shadow: 0 2px 8px #d2d2d2;
   -moz-box-shadow: 0 2px 8px #d2d2d2;
   -webkit-box-shadow: 0 2px 8px #d2d2d2;
   text-align: center;
-  font-size: 14px;
   padding: 14px;
+  margin-left: 5px;
   outline: none;
   font-weight: normal;
   text-transform: uppercase;
@@ -292,6 +299,10 @@ button.btn-xl {
   display: none;
 }
 
+.mr-sm-2 {
+  width: 8rem !important;
+}
+
 .background-container {
   background-color: #F7F2FA;
 }
@@ -315,6 +326,11 @@ button.btn-xl {
 
 .color-text:hover {
   color: #984BDC;
+}
+
+.icons-card {
+  width: 15%;
+  margin: 0.7rem;
 }
 
 

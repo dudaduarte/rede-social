@@ -10,7 +10,8 @@
   <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
   <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="styles/register.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/login.css">
+
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,14 +26,14 @@
   <script src="./src/scripts/bootbox.min.js"></script>
 </head>
 
-<body class="container">
-    <img src =/images/background-icons-media-768.svg>
-    <img src =/images/logo-conectvest.>
-      
-  <div id="login" >
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3" >
-        <div class="panel panel-login" >
+<body class="body">
+  <div class="container" id="login">
+    <div class="container-img">
+      <img class="img" src="images/logo-connectvest.svg" alt="Logo ConnectVest">
+    </div>
+    <div class="container-login row login-panel">
+      <div class="col-md-7 col-md-offset-2.5">
+        <div class="panel panel-login">
           <div class="panel-heading">
             <div class="row sa">
               <div class="col-xs-6">
@@ -58,13 +59,10 @@
                   </div>
                   <div class="form-group">
                     <div class="row jc-c">
-                      <div class="col-sm-6 col-sm-offset-3 row jc-c">
-                        <button class="form-btn btn-login btn btn-lg btn-primary" id="authFacebookButton"><i
-                            class="fab fa-facebook-f fa-2x"></i></button>
-                        <button class="form-btn btn-login btn btn-lg btn-danger" id="authGoogleButton"><i
-                            class="fab fa-google-plus-g fa-2x"></i></button>
-                        <button type="submit" id="login-submit" class="form-btn btn-login"><i
-                            class="fas fa-chevron-right"></i></button>
+                      <div class="btn-login-social col-sm-8 col-sm-offset-2 row jc-c">
+                        <button class="form-btn btn-login btn btn-lg btn-primary fab fa-facebook-f fa-2x" id="authFacebookButton"></button>
+                        <button class="form-btn btn-login btn btn-lg btn-danger fab fa-google-plus-g fa-2x" id="authGoogleButton"></button>
+                        <button type="submit" id="login-submit" class="form-btn btn-login fas fa-chevron-right"></button>
                       </div>
                     </div>
                   </div>
@@ -72,8 +70,7 @@
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="text-center forget-password">
-                          Esqueceu sua senha? <a href="#" class="forgot-password">Clique aqui para
-                            recuperar</a>.
+                          <a href="#" class="text-size forgot-password">Esqueci minha senha</a>.
                         </div>
                       </div>
                     </div>

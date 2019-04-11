@@ -7,6 +7,8 @@ $(document).ready(function () {
   $('#option-profile, #profile-pic-nav, .profile-navbar').attr('href', `profile.html?id=${USER_ID}`);
   $('#user-message').keyup(disableEnableButton);
   $('#btn-share').click(btnShare);
+  $('#btn-show-textbox').click(btnShowTextbox);
+  checkNumberPosts();
 
   database.ref(`posts/${USER_ID}`).once('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
@@ -75,7 +77,7 @@ $(document).ready(function () {
         </div>
         <div class="card-footer">
             <span class="color-icons likes-counter" id="likes-counter" data-counter-id="${key}">${likes}</span>
-            <a href="#" class="color-icons card-link" id="btn-like" data-like-id="${key}"><i class="fa fa-gittip"></i> Curtir</a>
+            <a href="#" class="color-icons card-link" id="btn-like" data-like-id="${key}"><i class="fa fa-gittip"></i> <span data-text-like="${key}">Curtir</span></a>
             <a href="#" class="color-icons card-link"><i class="fa fa-comment"></i> Comentar</a>
             <a href="#" class="color-icons card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
         </div>
@@ -85,31 +87,32 @@ $(document).ready(function () {
 
     $(`a[data-like-id=${key}]`).click(function (e) {
       e.preventDefault();
+      $(`span[data-text-like=${key}]`).html('Descurtir');
       let currentKey = $(this).attr('data-like-id');
       let likesRef = `likes/${USER_ID}/${currentKey}`;
       let databaseLikesAddress = database.ref(`${likesRef}/users`);
-      // let dataSearch = databaseLikesAddress.orderByChild('uid').equalTo(USER_ID);
-      // console.log(dataSearch);
-      // if (dataSearch.orderByCalled_) {
-      //   dataSearch.on('child_added', function (snapshot) {
-      //     snapshot.ref().remove();
-      //     console.log(snapshot)
-      //   })
-      // } else {
-      //   console.log('deu errado')
-      //   databaseLikesAddress.set({
-      //     uid: USER_ID
-      //   })
-      // }
-      databaseLikesAddress.set({
-        uid: USER_ID
-      })
-        databaseLikesAddress.once('value', function (snapshot) {
-          let countLikes = snapshot.numChildren();
-          database.ref(`${likesRef}`).update({
-            countLikes: countLikes
-          })
-          $(`span[data-counter-id=${currentKey}]`).html(countLikes);
+      let dataSearch = databaseLikesAddress.orderByChild('uid').equalTo(USER_ID);
+      console.log(dataSearch);
+      if (dataSearch.orderByCalled_) {
+        dataSearch.on('child_added', function (snapshot) {
+          snapshot.ref().remove();
+          console.log(snapshot)
+        })
+      } else {
+        console.log('deu errado')
+        databaseLikesAddress.set({
+          uid: USER_ID
+        })
+      }
+      // databaseLikesAddress.set({
+      //   uid: USER_ID
+      // })
+      databaseLikesAddress.once('value', function (snapshot) {
+        let countLikes = snapshot.numChildren();
+        database.ref(`${likesRef}`).update({
+          countLikes: countLikes
+        })
+        $(`span[data-counter-id=${currentKey}]`).html(countLikes);
       });
     })
 
@@ -133,26 +136,36 @@ $(document).ready(function () {
       $(`p[data-text-id=${currentKey}]`).html(newMessage);
     })
 
-  }
+    checkNumberPosts();
 
-  $('#btn-show-textbox').click(btnShowTextbox);
+  }
+  
+  function checkNumberPosts() {
+    if ($('#posts-container').children().length <= 1) {
+      $('#filter-posts').addClass('hidden').removeClass('d-flex');
+      console.log($('#posts-container').children().length)
+    } else if ($('#filter-posts').hasClass('hidden')) {
+      $('#filter-posts').removeClass('hidden').addClass('d-flex');
+      console.log($('#posts-container').children().length)
+    }
+  }
 
   function btnShowTextbox(e) {
     e.preventDefault();
+
     if (!$('#textbox').hasClass('gedf-card')) {
-    $('#textbox').addClass('card gedf-card');
-    $('#textbox').removeClass('hidden');
-    $('#btn-show-textbox').html('<i class="fas fa-minus"></i>');
-  } else {
-    $('#textbox').removeClass('card gedf-card');
-    $('#textbox').addClass('hidden');
-    $('#btn-show-textbox').html('<i class="fas fa-plus"></i>');
-  }
+      $('#textbox').addClass('card gedf-card style-card');
+      $('#textbox').removeClass('hidden2');
+      $('#btn-show-textbox').html('<i class="fas fa-minus"></i>');
+    } else {
+      $('#textbox').removeClass('card gedf-card style-card');
+      $('#textbox').addClass('hidden2');
+      $('#btn-show-textbox').html('<i class="fas fa-plus"></i>');
+    }
   }
 
   function btnShare(e) {
     e.preventDefault();
-
     let userText = $('#user-message').val();
     let dataPost = hourDate();
     let messageVisibility = 'public';
@@ -172,6 +185,7 @@ $(document).ready(function () {
       let user = snapshot.val();
       messagePost(hourDate(), userText, user, messageVisibility, postFromDB.key, 0)
     });
+    checkNumberPosts()
   }
 
   function confirmRemove(key) {
@@ -190,6 +204,7 @@ $(document).ready(function () {
         if (result) {
           $(`div[data-div=${key}]`).remove();
           database.ref('posts/' + USER_ID + "/" + key).remove();
+          checkNumberPosts();
         }
       }
     });
@@ -210,42 +225,42 @@ $(document).ready(function () {
     return number;
   }
 
-    function hourDate() {
-        let datePost = new Date();
-        let dayPost = datePost.getDate().toString();
-        let monthPost = (datePost.getMonth()+1).toString();
-        let yearPost = datePost.getFullYear();
-        let hourPost = datePost.getHours().toString();
-        let minutesPost = datePost.getMinutes().toString();
-        let hourMinutePost = `${checkNumberDate(dayPost)}/${checkNumberDate(monthPost)}/${yearPost} <i class="fa fa-clock-o"></i> ${checkNumberDate(hourPost)}h${checkNumberDate(minutesPost)}`;
-      return hourMinutePost;
+  function hourDate() {
+    let datePost = new Date();
+    let dayPost = datePost.getDate().toString();
+    let monthPost = (datePost.getMonth() + 1).toString();
+    let yearPost = datePost.getFullYear();
+    let hourPost = datePost.getHours().toString();
+    let minutesPost = datePost.getMinutes().toString();
+    let hourMinutePost = `${checkNumberDate(dayPost)}/${checkNumberDate(monthPost)}/${yearPost} <i class="fa fa-clock-o"></i> ${checkNumberDate(hourPost)}h${checkNumberDate(minutesPost)}`;
+    return hourMinutePost;
+  }
+
+  $('#btnMessageVisibility > a').on('click', function () {
+    var visibility = $(this).attr('data-filter');
+
+    $('#btnGroupDrop1 > i').removeClass('fa-globe');
+    $('#btnGroupDrop1 > i').removeClass('fa-users');
+    if (visibility === 'public') {
+      $('#btnGroupDrop1 > i').addClass('fa-globe');
+    } else {
+      $('#btnGroupDrop1 > i').addClass('fa-users');
     }
 
-    $('#btnMessageVisibility > a').on('click', function(){
-        var visibility = $(this).attr('data-filter');
+    $('#btnMessageVisibility').attr('data-filter', visibility);
+  });
 
-        $('#btnGroupDrop1 > i').removeClass('fa-globe');
-        $('#btnGroupDrop1 > i').removeClass('fa-users');
-        if(visibility === 'public'){
-            $('#btnGroupDrop1 > i').addClass('fa-globe');
-        }else{
-            $('#btnGroupDrop1 > i').addClass('fa-users');
+  $('#btnFilterVisibility > a').on('click', function () {
+    var visibility = $(this).attr('data-filter');
+
+    $('#posts-container > div').each(function () {
+      if ($(this).attr('data-filter')) {
+        if (visibility === 'all' || $(this).attr('data-filter') === visibility) {
+          $(this).show();
+        } else {
+          $(this).hide();
         }
-
-        $('#btnMessageVisibility').attr('data-filter', visibility);
+      }
     });
-
-    $('#btnFilterVisibility > a').on('click', function(){
-        var visibility = $(this).attr('data-filter');
-
-        $('#posts-container > div').each(function(){
-            if($(this).attr('data-filter')) {
-                if(visibility === 'all' || $(this).attr('data-filter') === visibility){
-                    $(this).show();
-                }else{
-                    $(this).hide();
-                }
-            }
-        });
-    });
+  });
 });

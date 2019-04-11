@@ -79,6 +79,10 @@ body{
     height:30px;
     font-size:12px;
   }
+  .btn-contact {
+    background-color: #984BDC;
+    border-color: #984BDC;
+  }
   .profile-tag{
     padding: 10px;
     border:1px solid #F6F6F6;

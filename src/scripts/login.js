@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(function (response) {
-        window.location = `feed.html?id=${response.user.uid}`;
+        window.location = `presentation.html?id=${response.user.uid}`;
       })
       .catch(function (error) {
         let errorMessage = error.message;
@@ -64,7 +64,7 @@ $(document).ready(function () {
             date: newUserDate,
             pic: 'https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png'
           }).then(function () {
-            window.location = `feed.html?id=${userId}`;
+            window.location = `presentation.html?id=${userId}`;
           })
         })
         .catch(function (error) {
@@ -102,7 +102,7 @@ $(document).ready(function () {
       .then(function (result) {
         let token = result.credential.accessToken;
         let user = result.user;
-        window.location = 'feed.html';
+        window.location = `presentation.html?id=${user.uid}`;
       }).catch(function (error) {
         bootbox.alert('Falha na autenticação');
       });
@@ -113,7 +113,7 @@ $(document).ready(function () {
     firebase.auth()
       .signOut()
       .then(function () {
-        window.location = 'index.html';
+        window.location = `index.html`;
       })
   }
 
