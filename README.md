@@ -9,7 +9,7 @@ O projeto – ConnectVest surge para contribuir com a integração entre estudan
 Iniciando:
 
 Partimos do desejo de atender nossos usuários estudantes, pensando nos requisitos necessários para o desenvolvimento do projeto. 
-Assuntos pertinentes à prova do Enem, com as disciplinas básicas do Ensino Médio, tais como: Matemática, Física, Química, História,     Língua Portuguesa, dentre outras
+Assuntos pertinentes à prova do Enem, com as disciplinas básicas do Ensino Médio, tais como: Matemática, Física, Química, História,     Língua Portuguesa, dentre outras.
 
 Pesquisa com usuários:
 
