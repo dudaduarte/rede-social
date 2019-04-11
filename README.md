@@ -1,31 +1,35 @@
 # rede-social
 
-Nome do projeto - rede-social
+Nome do projeto - Rede Social ConnectVest
 
 Título do projeto - ConnectVest
-   O projeto – ConectVest surge para contribuir com a integração entre estudantes que pretendem prestar o Exame Nacional do Ensino Médio – ENEM.
+   O projeto – ConnectVest surge para contribuir com a integração entre estudantes que pretendem prestar o Exame Nacional do Ensino Médio – ENEM.
+   
 Iníciando:
-    Partimos do desejo de atender nosso cliente a empreendedora, pensamos nos requisitos necessário
-par
-atender seu usuário, contribuindo com o desenvolvimento do projeto. 
-    Assuntos pertinentes a prova do Enem, com as disciplinas básicas do Ensino Médio, tais como:Matemática, Fisica, Quimica, História, Lingua Portuguesa, dentre outras.
+    Partimos do desejo de atender nossos clientes os estudantes, pensando nos requisitos necessários o desenvolvimento do projeto. 
+    Assuntos pertinentes à prova do Enem, com as disciplinas básicas do Ensino Médio, tais como: Matemática, Física, Química, História,     Língua Portuguesa, dentre outras.
+    
 Quais requisitos seriam esses? 
-Cadastro do usuário: login e password
-Envio, recebimento e edição de mensagens
-Página de busca
+
+Cadastro do usuário: login e senha.
+Envio, recebimento e edição de mensagens "fórum".
+Campo de pesquisa.
 Envio e recebimento de textos e conteúdos. 
-Fórum de discussão
 Cursos oferecidos gratuitamente aos estudantes de acordo com as áreas de interesse.
  
 Pré-requisitos - Definições:
-História do usuário
-EU, COMO USUÁRIO, QUERO CRIAR NOVAS PUBLICAÇÕES NO MEU PERFIL
-QUERO VER AS PUBLICAÇÕES DAS OUTRAS PESSOAS
+
+Histórias do usuário:
+
+EU, COMO USUÁRIO, QUERO CRIAR NOVAS PUBLICAÇÕES NO MEU PERFIL.
+QUERO VER AS PUBLICAÇÕES DAS OUTRAS PESSOAS.
 QUERO ME LOGAR NO APP. 
 
-Perfil do usuário 
-persona(1).pdf
-persona(2).pdf
+Perfil do usuário
+
+![alt text](http://url/to/img.png)
+
+
 
     Protótipo de baixa fidelidade
 https://marvelapp.com/44hc134/screen/54638987
