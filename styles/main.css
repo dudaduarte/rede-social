@@ -72,6 +72,7 @@ a:hover {
   border-color: #fff;
   text-align: center;
 }
+
 .panel-login>.panel-heading a {
   text-decoration: none;
   color: #35497D;
@@ -141,8 +142,8 @@ span i.fas, span i.far {
 }
 
 .style-logo-feed {
-  width: 16vw;
-  padding: 2px;
+  width: 14rem;
+  padding: 0.2rem;
 }
 
 button.btn-xl {
@@ -331,31 +332,6 @@ button.btn-xl {
 }
 
 @media (max-width: 480px) {
-  #toggle-1 {
-      display:none;
-   }
-
-   label {
-     display: inline-block;
-     cursor: pointer;
-     padding: 5px;
-     background-color: #F7F2FA;
-     border-bottom-color: #F7F2FA;
-     box-shadow: 0;
-   }
-
-   #mostra {
-      display: none;
-   }
-
-   #toggle-1:checked ~ #mostra {
-      display:block;
-   }
-}
-
-
-
-
-
-
-
+  #card-left {
+    display: none;
+  }

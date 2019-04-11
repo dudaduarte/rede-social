@@ -21,6 +21,7 @@
 }
 
 @media (max-width: 480px) {
+
   body {
     background-image: url('../images/background-icons-media-486.svg') !important;
     background-repeat: no-repeat;
@@ -29,7 +30,7 @@
 
   .img {
     margin: 10rem 20% 0 20%;
-    width: 60%; 
+    width: 60%;
   }
 
   .carousel-text {
@@ -42,7 +43,7 @@
   .nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; 
+    justify-content: space-between;
     margin: 1rem;
   }
 }
@@ -52,6 +53,7 @@
 }
 
 @media (min-width: 768px) {
+
   body {
     background-image: url('../images/background-icons-media-tablet.svg') !important;
     background-repeat: no-repeat;
@@ -60,7 +62,7 @@
 
   .img {
     margin: 19rem 20% 0 20%;
-    width: 60%; 
+    width: 60%;
   }
 
   .carousel-text {
@@ -74,12 +76,13 @@
   .nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; 
+    justify-content: space-between;
     margin: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
+
   body {
     background-image: url('../images/background-icons-media-768.svg') !important;
     background-repeat: no-repeat;
@@ -88,7 +91,7 @@
 
   .img {
     margin: 7rem 35% 0 35%;
-    width: 30%; 
+    width: 30%;
   }
 
   .carousel-text {
@@ -98,12 +101,12 @@
     margin: 4rem 15rem 0rem 15rem;
     text-align: center;
   }
-
+  
   .nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; 
+    justify-content: space-between;
     margin-left: 10%;
     margin-right: 10%;
-  } 
+  }
 }

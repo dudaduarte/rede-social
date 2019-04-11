@@ -24,7 +24,6 @@ $(document).ready(function () {
 
   function login(e) {
     e.preventDefault();
-    
 
     let email = $('#login-email').val();
     let password = $('#login-password').val();
@@ -48,7 +47,7 @@ $(document).ready(function () {
 
   function createUser(e) {
     e.preventDefault();
-    
+
 
     let newUserName = $('#name').val();
     let newUserDate = $('#age').val();

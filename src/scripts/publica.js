@@ -14,10 +14,10 @@ $(document).ready(function () {
     let user = snapshot.val();
     $('#navbar-dropdown').html(user.name);
     $('#profile-pic-navbar').attr('src', user.pic);
-  database.ref(`posts/${USER_ID}`).once('value', function (snapshot) {
-    snapshot.forEach(function (childSnapshot) {
-      let childKey = childSnapshot.key;
-      let childData = childSnapshot.val();
+    database.ref(`posts/${USER_ID}`).once('value', function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+        let childKey = childSnapshot.key;
+        let childData = childSnapshot.val();
         database.ref(`likes/${USER_ID}/${childKey}`).once('value', function (snapshot) {
           let countLikes = 0;
           if (snapshot.val()) {
@@ -90,9 +90,9 @@ $(document).ready(function () {
       let currentKey = $(this).attr('data-like-id');
       let likesRef = `likes/${USER_ID}/${currentKey}`;
       let databaseLikesAddress = database.ref(`${likesRef}/users`);
-       databaseLikesAddress.set({
-         uid: USER_ID
-       })
+      databaseLikesAddress.set({
+        uid: USER_ID
+      })
       databaseLikesAddress.once('value', function (snapshot) {
         let countLikes = snapshot.numChildren();
         database.ref(`${likesRef}`).update({
@@ -125,7 +125,7 @@ $(document).ready(function () {
     checkNumberPosts();
 
   }
-  
+
   function checkNumberPosts() {
     if ($('#posts-container').children().length <= 1) {
       $('#filter-posts').addClass('hidden').removeClass('d-flex');
