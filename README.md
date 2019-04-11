@@ -13,7 +13,8 @@ Assuntos pertinentes à prova do Enem, com as disciplinas básicas do Ensino Mé
 
 Pesquisa com usuários:
 
-![link](https://github.com/dudaduarte/rede-social/blob/master/personas.jpg)
+![link](https://github.com/dudaduarte/rede-social/blob/master/Test_Usabilidade1.png)
+![link](https://github.com/dudaduarte/rede-social/blob/master/Test_Usabilidade1.png)
 
     
 Quais requisitos seriam esses? 
