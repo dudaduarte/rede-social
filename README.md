@@ -6,9 +6,9 @@ Título do projeto - ConnectVest
 
 O projeto – ConnectVest surge para contribuir com a integração entre estudantes que pretendem prestar o Exame Nacional do Ensino Médio – ENEM.
    
-Iníciando:
+Iniciando:
 
-Partimos do desejo de atender nossos clientes os estudantes, pensando nos requisitos necessários o desenvolvimento do projeto. 
+Partimos do desejo de atender nossos usuários os estudantes, pensando nos requisitos necessários o desenvolvimento do projeto. 
 Assuntos pertinentes à prova do Enem, com as disciplinas básicas do Ensino Médio, tais como: Matemática, Física, Química, História,     Língua Portuguesa, dentre outras.
 
 Pesquisa com usuários:
@@ -40,9 +40,9 @@ Abaixo segue o protótipo corrigido de alta fidelidade:
 ![link](https://github.com/dudaduarte/rede-social/blob/master/prototipo-alta-fidelidade-1.jpg)
 ![link](https://github.com/dudaduarte/rede-social/blob/master/prototipo-alta-fidelidade-2.jpg)
 
-Foram utilizadas as seguintes ferramentas:
+Ferramentas:
 
-Para o planejamento do nosso projeto as seguintes ferramentas:
+Para o planejamento do nosso projeto utilizamos as seguintes ferramentas:
 
 Trello:
 https://trello.com/b/nOKscZwX/rede-social-educa%C3%A7%C3%A3o
@@ -51,7 +51,7 @@ Para a comunicação com o trio utilizamos o Slack:
 https://claseslaboratoria.slack.com/messages/GH2JN8J2G/team/
 https://web.whatsapp.com
 
-Para montar as páginas dos nossos protótipos usamos:
+Para montar as páginas dos nossos protótipos:
 Illustrator
 www.marvel.com.br
 
