@@ -1,4 +1,4 @@
-# rede-social
+# Rede-Social
 
 Nome do projeto - Rede Social ConnectVest
 
