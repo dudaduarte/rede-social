@@ -3,11 +3,13 @@
 Nome do projeto - Rede Social ConnectVest
 
 Título do projeto - ConnectVest
-   O projeto – ConnectVest surge para contribuir com a integração entre estudantes que pretendem prestar o Exame Nacional do Ensino Médio – ENEM.
+
+O projeto – ConnectVest surge para contribuir com a integração entre estudantes que pretendem prestar o Exame Nacional do Ensino Médio – ENEM.
    
 Iníciando:
-    Partimos do desejo de atender nossos clientes os estudantes, pensando nos requisitos necessários o desenvolvimento do projeto. 
-    Assuntos pertinentes à prova do Enem, com as disciplinas básicas do Ensino Médio, tais como: Matemática, Física, Química, História,     Língua Portuguesa, dentre outras.
+
+Partimos do desejo de atender nossos clientes os estudantes, pensando nos requisitos necessários o desenvolvimento do projeto. 
+Assuntos pertinentes à prova do Enem, com as disciplinas básicas do Ensino Médio, tais como: Matemática, Física, Química, História,     Língua Portuguesa, dentre outras.
     
 Quais requisitos seriam esses? 
 
@@ -25,18 +27,9 @@ EU, COMO USUÁRIO, QUERO CRIAR NOVAS PUBLICAÇÕES NO MEU PERFIL.
 QUERO VER AS PUBLICAÇÕES DAS OUTRAS PESSOAS.
 QUERO ME LOGAR NO APP. 
 
-Perfil do usuário
+PERSONAS
 
-![alt text](http://url/to/img.png)
-
-
-
-    Protótipo de baixa fidelidade
-https://marvelapp.com/44hc134/screen/54638987
-
-    Protótipo de alta fidelidade
-https://marvelapp.com/4h6jf9e/screen/54818409
-
+![link](https://github.com/dudaduarte/rede-social/blob/master/personas.jpg)
 
  Foram utilizadas as seguintes ferramentas:
 Para o planejamento do nosso projeto as seguintes ferramentas: 
