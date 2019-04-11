@@ -259,6 +259,10 @@ button.btn-xl {
   text-transform: uppercase;
 }
 
+.btn-arrow {
+  margin-left: 2rem;
+}
+
 .btn-login:hover, .btn-login:focus {
   color: #fff;
   background-color: #5AAAB4;

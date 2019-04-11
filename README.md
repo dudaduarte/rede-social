@@ -67,10 +67,8 @@ www.marvel.com.br
     Projeto do Firabase
 
 https://rede-social-b3de5.firebaseio.com
-
     URI de redirecionamento de OAuth
 
 https://rede-social-b3de5.firebaseapp.com/__/auth/handler 
  
  
-

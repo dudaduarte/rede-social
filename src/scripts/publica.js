@@ -22,7 +22,8 @@ $(document).ready(function () {
             countLikes = snapshot.val().countLikes;
           }
           messagePost(childData.date, childData.message, user, childData.visibility, childKey, countLikes)
-          $('#navbarDropdown').html(user.name);
+          $('#navbar-dropdown').html(user.name);
+          console.log(user.name)
           $('#profile-pic-navbar').attr('src', user.pic);
         })
       })
@@ -143,10 +144,8 @@ $(document).ready(function () {
   function checkNumberPosts() {
     if ($('#posts-container').children().length <= 1) {
       $('#filter-posts').addClass('hidden').removeClass('d-flex');
-      console.log($('#posts-container').children().length)
     } else if ($('#filter-posts').hasClass('hidden')) {
       $('#filter-posts').removeClass('hidden').addClass('d-flex');
-      console.log($('#posts-container').children().length)
     }
   }
 
