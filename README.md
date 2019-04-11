@@ -31,14 +31,25 @@ PERSONAS
 
 ![link](https://github.com/dudaduarte/rede-social/blob/master/personas.jpg)
 
- Foram utilizadas as seguintes ferramentas:
-Para o planejamento do nosso projeto as seguintes ferramentas: 
+A partir das pesquisas realizadas com nosso público alvo, identificamos suas necessidades e criamos um protótipo de baixa fidelidade, que foi testado e corrigido de acordo com feedback de nossos usuários.
+
+Abaixo segue o protótipo corrigido de alta fidelidade:
+![link](https://github.com/dudaduarte/rede-social/blob/master/prototipo-alta-fidelidade-1.jpg)
+![link](https://github.com/dudaduarte/rede-social/blob/master/prototipo-alta-fidelidade-1.jpg)
+
+
+
+Foram utilizadas as seguintes ferramentas:
+
+Para o planejamento do nosso projeto as seguintes ferramentas:
+
 Trello:
 https://trello.com/b/nOKscZwX/rede-social-educa%C3%A7%C3%A3o
-Para a comunicação com o trio utilizamos o Slack 
+
+Para a comunicação com o trio utilizamos o Slack: 
 https://claseslaboratoria.slack.com/messages/GH2JN8J2G/team/
 
-Endereço do projeto no Git
+Endereço do projeto no Git:
 https://github.com/dudaduarte/rede-social.git
 
     
