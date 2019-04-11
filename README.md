@@ -4,7 +4,7 @@ Nome do projeto - Rede Social ConnectVest
 
 Título do projeto - ConnectVest
 
-O projeto – ConnectVest surge para contribuir com a integração entre estudantes que pretendem prestar o Exame Nacional do Ensino Médio – ENEM
+O projeto – ConnectVest surge para contribuir com a integração entre estudantes que pretendem prestar o Exame Nacional do Ensino Médio – ENEM.
    
 Iniciando:
 
