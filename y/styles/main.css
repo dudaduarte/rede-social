@@ -166,14 +166,6 @@ button.btn-xl {
   margin: 15px 0;
 }
 
-.container-button-textbox {
-  transition: .2s;
-}
-
-.container-button-textbox:hover {
-  transform: scale(1.0);
-}
-
 .fa-plus, .fa-minus {
   font-size: 30px;
 }
@@ -335,3 +327,8 @@ button.btn-xl {
   #card-left {
     display: none;
   }
+
+  .container-button-textbox{
+    margin: 20px 0 0;
+  }
+}
