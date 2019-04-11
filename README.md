@@ -14,8 +14,17 @@ Assuntos pertinentes à prova do Enem, com as disciplinas básicas do Ensino Mé
 Pesquisa com usuários:
 
 ![link](https://github.com/dudaduarte/rede-social/blob/master/Test_Usabilidade1.png)
-![link](https://github.com/dudaduarte/rede-social/blob/master/Test_Usabilidade1.png)
+![link](https://github.com/dudaduarte/rede-social/blob/master/Test_Usabilidade2.png)
 
+Personas:
+
+![link](https://github.com/dudaduarte/rede-social/blob/master/personas.jpg)
+
+Histórias do usuário:
+
+EU, COMO USUÁRIO, QUERO CRIAR NOVAS PUBLICAÇÕES NO MEU PERFIL.
+QUERO VER AS PUBLICAÇÕES DAS OUTRAS PESSOAS.
+QUERO ME LOGAR NO APP.
     
 Quais requisitos seriam esses? 
 
@@ -25,18 +34,6 @@ Campo de pesquisa.
 Envio e recebimento de textos e conteúdos. 
 Cursos oferecidos gratuitamente aos estudantes de acordo com as áreas de interesse.
  
-Pré-requisitos - Definições:
-
-Histórias do usuário:
-
-EU, COMO USUÁRIO, QUERO CRIAR NOVAS PUBLICAÇÕES NO MEU PERFIL.
-QUERO VER AS PUBLICAÇÕES DAS OUTRAS PESSOAS.
-QUERO ME LOGAR NO APP. 
-
-PERSONAS
-
-![link](https://github.com/dudaduarte/rede-social/blob/master/personas.jpg)
-
 A partir das pesquisas realizadas com nosso público alvo, identificamos suas necessidades e criamos um protótipo de baixa fidelidade, que foi testado e corrigido de acordo com feedback de nossos usuários.
 
 Abaixo segue o protótipo corrigido de alta fidelidade:
@@ -61,17 +58,9 @@ www.marvel.com.br
 Endereço do projeto no Git:
 https://github.com/dudaduarte/rede-social.git
 
+Desenvolvimento:
 
-
-    Test.Usabilidade1.png
-    Test.Usabilidade2.png
-
-    Obs. pegar link com Carina
-
-
-    Desenvolvimento
-
-    Projeto do Firabase
+Firebase, Bootstrap, jQuery, HTML, CSS, JavaScript, Hosting.
 
 https://rede-social-b3de5.firebaseio.com
     URI de redirecionamento de OAuth
