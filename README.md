@@ -26,7 +26,7 @@ EU, COMO USUÁRIO, QUERO CRIAR NOVAS PUBLICAÇÕES NO MEU PERFIL.
 QUERO VER AS PUBLICAÇÕES DAS OUTRAS PESSOAS.
 QUERO ME LOGAR NO APP.
     
-Quais requisitos seriam esses? 
+Requisitos: 
 
 Cadastro do usuário: login e senha.
 Envio, recebimento e edição de mensagens "fórum".
