@@ -68,11 +68,11 @@ https://github.com/dudaduarte/rede-social.git
 
 Desenvolvimento:
 
+https://console.firebase.google.com/project/conectvest/authentication/users
+
+https://conectvest.firebaseapp.com/index.html
+
 Firebase, Bootstrap, jQuery, HTML, CSS, JavaScript, Hosting.
 
-https://rede-social-b3de5.firebaseio.com
-    URI de redirecionamento de OAuth
-
-https://rede-social-b3de5.firebaseapp.com/__/auth/handler 
  
  
