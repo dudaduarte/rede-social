@@ -1,70 +1,74 @@
-# rede-social
+# Rede-Social
 
-Nome do projeto - rede-social
+Nome do projeto - Rede Social ConnectVest
 
 Título do projeto - ConnectVest
-   O projeto – ConectVest surge para contribuir com a integração entre estudantes que pretendem prestar o Exame Nacional do Ensino Médio – ENEM.
-Iníciando:
-    Partimos do desejo de atender nosso cliente a empreendedora, pensamos nos requisitos necessário
-par
-atender seu usuário, contribuindo com o desenvolvimento do projeto. 
-    Assuntos pertinentes a prova do Enem, com as disciplinas básicas do Ensino Médio, tais como:Matemática, Fisica, Quimica, História, Lingua Portuguesa, dentre outras.
-Quais requisitos seriam esses? 
-Cadastro do usuário: login e password
-Envio, recebimento e edição de mensagens
-Página de busca
-Envio e recebimento de textos e conteúdos. 
-Fórum de discussão
-Cursos oferecidos gratuitamente aos estudantes de acordo com as áreas de interesse.
- 
-Pré-requisitos - Definições:
-História do usuário
-EU, COMO USUÁRIO, QUERO CRIAR NOVAS PUBLICAÇÕES NO MEU PERFIL
-QUERO VER AS PUBLICAÇÕES DAS OUTRAS PESSOAS
-QUERO ME LOGAR NO APP. 
 
-Perfil do usuário 
-persona(1).pdf
-persona(2).pdf
+O projeto – ConnectVest surge para contribuir com a integração entre estudantes que pretendem prestar o Exame Nacional do Ensino Médio – ENEM.
+   
+Iniciando:
 
-    Protótipo de baixa fidelidade
-https://marvelapp.com/44hc134/screen/54638987
+Partimos do desejo de atender nossos usuários estudantes, pensando nos requisitos necessários para o desenvolvimento do projeto. 
+Assuntos pertinentes à prova do Enem, com as disciplinas básicas do Ensino Médio, tais como: Matemática, Física, Química, História,     Língua Portuguesa, dentre outras.
 
-    Protótipo de alta fidelidade
-https://marvelapp.com/4h6jf9e/screen/54818409
+Pesquisa com usuários:
 
+![link](https://github.com/dudaduarte/rede-social/blob/master/Test_Usabilidade1.png)
+![link](https://github.com/dudaduarte/rede-social/blob/master/Test_Usabilidade2.png)
 
- Foram utilizadas as seguintes ferramentas:
-Para o planejamento do nosso projeto as seguintes ferramentas: 
-Trello:
-https://trello.com/b/nOKscZwX/rede-social-educa%C3%A7%C3%A3o
-Para a comunicação com o trio utilizamos o Slack 
-https://claseslaboratoria.slack.com/messages/GH2JN8J2G/team/
+Personas:
 
-Endereço do projeto no Git
-https://github.com/dudaduarte/rede-social.git
+![link](https://github.com/dudaduarte/rede-social/blob/master/personas.jpg)
+
+Histórias do usuário:
+
+EU, COMO USUÁRIO, QUERO CRIAR NOVAS PUBLICAÇÕES NO MEU PERFIL.
+
+QUERO VER AS PUBLICAÇÕES DAS OUTRAS PESSOAS.
+
+QUERO ME LOGAR NO APP.
 
     
-    Interação 
+Requisitos: 
+
+Cadastro do usuário: login e senha.
+
+Envio, recebimento e edição de mensagens "fórum".
+
+Campo de pesquisa.
+
+Envio e recebimento de textos e conteúdos. 
+
+Cursos oferecidos gratuitamente aos estudantes de acordo com as áreas de interesse.
+
  
-Para comunicação com o Squad 5 WhatsApp
+A partir das pesquisas realizadas com nosso público alvo, identificamos suas necessidades e criamos um protótipo de baixa fidelidade, que foi testado e corrigido de acordo com feedback de nossos usuários.
+
+Abaixo segue o protótipo corrigido de alta fidelidade:
+![link](https://github.com/dudaduarte/rede-social/blob/master/prototipo-alta-fidelidade-1.jpg)
+![link](https://github.com/dudaduarte/rede-social/blob/master/prototipo-alta-fidelidade-2.jpg)
+
+Ferramentas:
+
+Para o planejamento do nosso projeto utilizamos as seguintes ferramentas:
+
+Trello:
+https://trello.com/b/nOKscZwX/rede-social-educa%C3%A7%C3%A3o
+
+Para a comunicação com o trio utilizamos o Slack: 
+https://claseslaboratoria.slack.com/messages/GH2JN8J2G/team/
 https://web.whatsapp.com
 
-Para montar as páginas dos nossos protótipos usamos:
+Para montar as páginas dos nossos protótipos:
 Illustrator
 www.marvel.com.br
-	
-    Para o teste de usabilidade 
 
-    Test.Usabilidade1.png
-    Test.Usabilidade2.png
+Endereço do projeto no Git:
+https://github.com/dudaduarte/rede-social.git
 
-    Obs. pegar link com Carina
+Desenvolvimento:
 
-
-    Desenvolvimento
-
-    Projeto do Firabase
+Firebase, Bootstrap, jQuery, HTML, CSS, JavaScript, Hosting.
 
 https://rede-social-b3de5.firebaseio.com
     URI de redirecionamento de OAuth
