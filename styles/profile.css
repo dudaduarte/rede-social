@@ -32,11 +32,18 @@ body{
     padding-bottom:30px;
     background-color:#FAFAFA;
   }
+  .tab-pane {
+    padding: 1rem;
+  }
   .follow{    
-    margin-top:70px;   
+    margin-top:40px;   
+  }
+  .bio-style {
+    margin-top: 20px;
   }
   .user-detail-row{
     margin:0px; 
+    width: 100%;
   }
   .user-detail-section2 p{
     font-size:12px;
@@ -116,7 +123,3 @@ body{
     color:#7F7F7F;
   }
 
-  .nav-link{
-    font-size: 1.2em;    
-  }
-  

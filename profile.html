@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ConectVest</title>
+    <title>ConnectVest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/profile.css">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css">
@@ -28,60 +28,63 @@
 
 <body>
 
-    <header>
-        <nav class="df jc-fe navbar navbar-expand-lg navbar-dark bg-purple">
-            <a id="logo-navbar" class="navbar-brand" href="#"><img src="./images/logo-conectvest-01.png"
-                    class='style-logo-feed'></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
-                aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="jc-fe collapse navbar-collapse" id="conteudoNavbarSuportado">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
+        <header class="header">
+                <nav class="df jc-fe navbar navbar-expand-lg navbar-dark bg-purple">
+                  <a id="logo-navbar" class="navbar-brand" href="#"><img src="./images/logo-text.svg"
+                      class='style-logo-feed'></a>
+                  <button class="navbar-toggler brand-size" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+                    aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+             
+                  <div class="jc-fe collapse navbar-collapse" id="conteudoNavbarSuportado">
+                    <ul class="navbar-nav">
+                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <!-- Dropdown -->
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <!-- Dropdown -->
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" id="option-profile" href="#">Perfil</a>
-                            <a class="dropdown-item" href="#">Configurações</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" id="button-logout">Sair</a>
+                          <a class="dropdown-item" id="option-profile" href="#">Perfil</a>
+                          <a class="dropdown-item" href="#">Configurações</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="btn-close dropdown-item" href="#" id="button-logout">Sair</a>
                         </div>
-                    </li>
-                    <li class="nav-item"> <a id="profile-pic-nav"><img id="profile-pic-navbar"
-                                class="rounded-circle pic-navbar"></a></li>
-                    <li class="nav-item active">
-                        <a id="home-navbar" class="nav-link" href="#">Home <span class="sr-only">(página
-                                atual)</span></a>
-                    </li>
-                    <li class="nav-item active">
+                      </li>
+                      <li class="nav-item"> <a href="#" id="profile-pic-nav"><img id="profile-pic-navbar"
+                            class="rounded-circle pic-navbar"></a></li>
+                      <li class="nav-item active">
+                        <a id="home-navbar" class="nav-link home-navbar" href="#">Home <span class="sr-only">(página
+                            atual)</span></a>
+                      </li>
+                      <li class="nav-item active">
+                        <a id="home-navbar" class="nav-link profile-navbar" href="#">Perfil <span class="sr-only">(página
+                            atual)</span></a>
+                      </li>
+                      <li class="nav-item active">
                         <a id="home-navbar" class="nav-link" href="#">Fóruns<span class="sr-only">(página
-                                atual)</span></a>
-                    </li>
-                    <li class="nav-item active">
+                            atual)</span></a>
+                      </li>
+                      <li class="nav-item active">
                         <a id="home-navbar" class="nav-link" href="#">Cursos<span class="sr-only">(página
-                                atual)</span></a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <div class="hidden" id="input-search">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar"
-                            aria-label="Pesquisar">
-                    </div>
-                    <button class="btn-feed my-2 my-sm-0 btn-search btn-circle" id="btn-search" type="submit"><i
-                            class="fas fa-search"></i></button>
-                </form>
-            </div>
-        </nav>
-    </header>
+                            atual)</span></a>
+                      </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                      <div class="hidden" id="input-search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                      </div>
+                      <button class="btn-feed my-2 my-sm-0 btn-search btn-circle" id="btn-search" type="submit"><i
+                          class="fas fa-search"></i></button>
+                    </form>
+                  </div>
+                </nav>
+              </header>
 
     <div class="container main-secction">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 image-section">
-                <img src="https://png.pngtree.com/thumb_back/fw800/back_pic/00/08/57/41562ad4a92b16a.jpg">
+                <img src="images/background-profile.jpg">
             </div>
             <div class="row user-left-part">
                 <div class="col-md-3 col-sm-3 col-xs-12 user-profil-part pull-left">
@@ -91,18 +94,11 @@
                                 class="rounded-circle">
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
+                            <section id="user-bio" class="bio-style"></section>
                             <button id="btn-contact" (click)="clearModal()" data-toggle="modal" data-target="#contact"
-                                class="btn btn-success btn-block follow">Contactarme</button>
-                            <button class="btn btn-warning btn-block">Descargar Curriculum</button>
+                                class="btn btn-success btn-block follow">Contato</button>
+                            <button class="btn btn-warning btn-block">Interesses</button>
                         </div>
-                        <div class="row user-detail-row">
-                            <div class="col-md-12 col-sm-12 user-detail-section2 pull-left">
-                                <div class="border"></div>
-                                <p>FOLLOWER</p>
-                                <span>320</span>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-12 pull-right profile-right-section">
@@ -111,10 +107,12 @@
                             <div class="row">
                                 <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
                                     <h1 id="display-name"></h1>
-                                    <h5 id="display-status"></h5>
+                                    <section id="status-container">
+                                        <h5 id="display-status"></h5>
+                                    </section>
                                 </div>
                                 <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
-                                    <a href="/search" class="btn btn-primary btn-block">Adicionar à Rede</a>
+                                    <a href="#profile" class="color-btn btn btn-primary btn-block">Adicionar à Rede</a>
                                 </div>
                             </div>
                         </div>
@@ -123,13 +121,15 @@
                                 <div class="col-md-8">
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="#profile" role="tab" data-toggle="tab"><i
-                                                    class="fas fa-user-circle"></i> Perfil</a>
+                                            <a class="color-text nav-link active" href="#profile" id="profile-navbar" role="tab" data-toggle="tab"><i
+                                                    class="color-text fas fa-user-circle"></i> Perfil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#buzz" role="tab" data-toggle="tab"><i
-                                                    class="fas fa-info-circle"></i> Publicações</a>
+                                            <a class="nav-link" href="#cursos" role="tab" data-toggle="tab"><i class="fas fa-book-open"></i> Meus Cursos</a>
                                         </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="#foruns" role="tab" data-toggle="tab"><i class="fas fa-users"></i> Meus Fóruns</a>
+                                            </li>
                                     </ul>
 
                                     <!-- Infos de perfil -->
@@ -161,62 +161,17 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <label>Instituição de Ensino</label>
+                                                    <label>Escola</label>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p id="display-school"></p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div role="tabpanel" class="tab-pane fade" id="buzz">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Experience</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Expert</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Hourly Rate</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>10$/hr</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Total Projects</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>230</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>English Level</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Expert</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Availability</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>6 months</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <label>Your Bio</label>
-                                                    <br />
-                                                    <p>Your detail description</p>
-                                                </div>
-                                            </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="cursos">
                                         </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="foruns">
+                                            </div>
 
                                     </div>
 
@@ -270,10 +225,10 @@
 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="./src/scripts/profile.js"></script>
     <script src="./src/scripts/config.js"></script>
     <script src="./src/scripts/publica.js"></script>
     <script src="./src/scripts/login.js"></script>
-    <script src="./src/scripts/profile.js"></script>
 </body>
 
 </html>

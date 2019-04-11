@@ -1,9 +1,12 @@
+# rede-social
+
 Nome do projeto - rede-social
 
-Título do projeto - ConectVest
-    O projeto – ConectVest surge para contribuir com a integração entre estudantes que pretendem prestar o Exame Nacional do Ensino Médio – ENEM.
+Título do projeto - ConnectVest
+   O projeto – ConectVest surge para contribuir com a integração entre estudantes que pretendem prestar o Exame Nacional do Ensino Médio – ENEM.
 Iníciando:
-    Partimos do desejo de atender nosso cliente a empreendedora, pensamos nos requisitos necessários par
+    Partimos do desejo de atender nosso cliente a empreendedora, pensamos nos requisitos necessário
+par
 atender seu usuário, contribuindo com o desenvolvimento do projeto. 
     Assuntos pertinentes a prova do Enem, com as disciplinas básicas do Ensino Médio, tais como:Matemática, Fisica, Quimica, História, Lingua Portuguesa, dentre outras.
 Quais requisitos seriam esses? 
@@ -64,7 +67,6 @@ www.marvel.com.br
     Projeto do Firabase
 
 https://rede-social-b3de5.firebaseio.com
- 
     URI de redirecionamento de OAuth
 
 https://rede-social-b3de5.firebaseapp.com/__/auth/handler 
