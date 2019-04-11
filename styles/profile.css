@@ -2,6 +2,9 @@ body{
   margin-top: auto;
     background-color: #f1f1f1;
   }
+  .profile-link {
+    color: #984BDC !important;
+  }
   .border{
     border-bottom:1px solid #F1F1F1;
     margin-bottom:10px;
@@ -61,6 +64,9 @@ body{
     font-size:12px;
     color:#D3A86A;
   }
+  .status-container {
+    margin: 8px 0 0;
+  }
   .profile-right-section{
     padding: 20px 0px 10px 15px;
     background-color: #FFFFFF;  
@@ -72,8 +78,8 @@ body{
     font-size: 25px;
     margin: 0px;
   }
-  .profile-header-section1 h5{
-    color: #0062cc;
+  .profile-header-section1 h6{
+    color: rgb(172, 172, 172);
   }
   .req-btn{
     height:30px;

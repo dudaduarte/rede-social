@@ -325,6 +325,34 @@ button.btn-xl {
   margin: 0.7rem;
 }
 
+.icons-card {
+  width: 15%;
+  margin: 0.7rem;
+}
+
+@media (max-width: 480px) {
+  #toggle-1 {
+      display:none;
+   }
+
+   label {
+     display: inline-block;
+     cursor: pointer;
+     padding: 5px;
+     background-color: #F7F2FA;
+     border-bottom-color: #F7F2FA;
+     box-shadow: 0;
+   }
+
+   #mostra {
+      display: none;
+   }
+
+   #toggle-1:checked ~ #mostra {
+      display:block;
+   }
+}
+
 
 
 

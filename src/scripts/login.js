@@ -31,7 +31,7 @@ $(document).ready(function () {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(function (response) {
-        window.location = `presentation.html?id=${response.user.uid}`;
+        window.location = `feed.html?id=${response.user.uid}`;
       })
       .catch(function (error) {
         let errorMessage = error.message;

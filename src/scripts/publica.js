@@ -10,21 +10,20 @@ $(document).ready(function () {
   $('#btn-show-textbox').click(btnShowTextbox);
   checkNumberPosts();
 
+  database.ref(`users/${USER_ID}`).on('value', function (snapshot) {
+    let user = snapshot.val();
+    $('#navbar-dropdown').html(user.name);
+    $('#profile-pic-navbar').attr('src', user.pic);
   database.ref(`posts/${USER_ID}`).once('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
       let childKey = childSnapshot.key;
       let childData = childSnapshot.val();
-      database.ref(`users/${USER_ID}`).on('value', function (snapshot) {
-        let user = snapshot.val();
         database.ref(`likes/${USER_ID}/${childKey}`).once('value', function (snapshot) {
           let countLikes = 0;
           if (snapshot.val()) {
             countLikes = snapshot.val().countLikes;
           }
           messagePost(childData.date, childData.message, user, childData.visibility, childKey, countLikes)
-          $('#navbar-dropdown').html(user.name);
-          console.log(user.name)
-          $('#profile-pic-navbar').attr('src', user.pic);
         })
       })
     })
@@ -88,26 +87,12 @@ $(document).ready(function () {
 
     $(`a[data-like-id=${key}]`).click(function (e) {
       e.preventDefault();
-      $(`span[data-text-like=${key}]`).html('Descurtir');
       let currentKey = $(this).attr('data-like-id');
       let likesRef = `likes/${USER_ID}/${currentKey}`;
       let databaseLikesAddress = database.ref(`${likesRef}/users`);
-      let dataSearch = databaseLikesAddress.orderByChild('uid').equalTo(USER_ID);
-      console.log(dataSearch);
-      if (dataSearch.orderByCalled_) {
-        dataSearch.on('child_added', function (snapshot) {
-          snapshot.ref().remove();
-          console.log(snapshot)
-        })
-      } else {
-        console.log('deu errado')
-        databaseLikesAddress.set({
-          uid: USER_ID
-        })
-      }
-      // databaseLikesAddress.set({
-      //   uid: USER_ID
-      // })
+       databaseLikesAddress.set({
+         uid: USER_ID
+       })
       databaseLikesAddress.once('value', function (snapshot) {
         let countLikes = snapshot.numChildren();
         database.ref(`${likesRef}`).update({
