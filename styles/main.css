@@ -123,20 +123,8 @@ a:hover {
   font-size: .7em;
 }
 
-.jc-c {
-  justify-content: center;
-}
-
 .js-fe {
   text-align: left;
-}
-
-.jc-fe {
-  justify-content: flex-end;
-}
-
-.df {
-  display: flex;
 }
 
 .fa-chevron-right {
