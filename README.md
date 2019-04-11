@@ -32,10 +32,15 @@ QUERO ME LOGAR NO APP.
 Requisitos: 
 
 Cadastro do usuário: login e senha.
+
 Envio, recebimento e edição de mensagens "fórum".
+
 Campo de pesquisa.
+
 Envio e recebimento de textos e conteúdos. 
+
 Cursos oferecidos gratuitamente aos estudantes de acordo com as áreas de interesse.
+
  
 A partir das pesquisas realizadas com nosso público alvo, identificamos suas necessidades e criamos um protótipo de baixa fidelidade, que foi testado e corrigido de acordo com feedback de nossos usuários.
 
