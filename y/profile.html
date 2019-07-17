@@ -2,19 +2,19 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>ConnectVest</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="styles/profile.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/profile.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
     <link rel="shortcut icon" href="images/favicon.ico" />
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -22,15 +22,15 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 </head>
 
 <body>
-
     <header class="header">
         <nav class="df justify-content-end navbar navbar-expand-lg navbar-dark bg-purple">
             <a id="logo-navbar" class="navbar-brand" href="#"><img src="./images/logo-text.svg"
-                    class='style-logo-feed'></a>
+                    class="style-logo-feed" /></a>
+
             <button class="navbar-toggler brand-size" type="button" data-toggle="collapse"
                 data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
                 aria-label="Alterna navegação">
@@ -50,8 +50,10 @@
                             <a class="btn-close dropdown-item" href="#" id="button-logout">Sair</a>
                         </div>
                     </li>
-                    <li class="nav-item"> <a href="#" id="profile-pic-nav"><img id="profile-pic-navbar"
-                                class="rounded-circle pic-navbar"></a></li>
+                    <li class="nav-item">
+                        <a href="#" id="profile-pic-nav"><img id="profile-pic-navbar"
+                                class="rounded-circle pic-navbar" /></a>
+                    </li>
                     <li class="nav-item active">
                         <a id="home-navbar" class="nav-link home-navbar" href="#">Home</a>
                     </li>
@@ -68,10 +70,11 @@
                 <form class="form-inline my-2 my-lg-0">
                     <div class="hidden" id="input-search">
                         <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar"
-                            aria-label="Pesquisar">
+                            aria-label="Pesquisar" />
                     </div>
-                    <button class="btn-feed my-2 my-sm-0 btn-search btn-circle" id="btn-search" type="submit"><i
-                            class="fas fa-search"></i></button>
+                    <button class="btn-feed my-2 my-sm-0 btn-search btn-circle" id="btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </form>
             </div>
         </nav>
@@ -80,19 +83,21 @@
         <div class="container main-secction">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 image-section">
-                    <img src="images/background-profile.jpg">
+                    <img src="images/background-profile.jpg" />
                 </div>
                 <div class="row user-left-part">
                     <div class="col-md-3 col-sm-3 col-xs-12 user-profil-part pull-left">
                         <div class="row ">
                             <div class="col-md-12 col-md-12-sm-12 col-xs-12 user-image text-center">
                                 <img src="https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png"
-                                    class="rounded-circle">
+                                    class="rounded-circle" />
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
                                 <section id="user-bio" class="bio-style"></section>
                                 <button id="btn-contact" (click)="clearModal()" data-toggle="modal"
-                                    data-target="#contact" class="btn btn-success btn-block follow">Contato</button>
+                                    data-target="#contact" class="btn btn-success btn-block follow">
+                                    Contato
+                                </button>
                                 <button class="btn btn-warning btn-block">Interesses</button>
                             </div>
                         </div>
@@ -169,13 +174,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="cursos">
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="foruns">
-                                            </div>
-
+                                            <div role="tabpanel" class="tab-pane fade" id="cursos"></div>
+                                            <div role="tabpanel" class="tab-pane fade" id="foruns"></div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -193,5 +194,4 @@
     <script src="./src/scripts/publica.js"></script>
     <script src="./src/scripts/login.js"></script>
 </body>
-
 </html>

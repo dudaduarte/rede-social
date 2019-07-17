@@ -41,47 +41,52 @@ $(document).ready(function () {
 
   function messagePost(date, message, user, visibility, key, likes) {
     $('#posts-container').append(`
-        <div class="card gedf-card marg" data-div="${key}" data-filter="${visibility}">
-        <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="mr-2">
-                    <a href="profile.html?id=${USER_ID}"><img class="profile-link rounded-circle profile-pic-posts" width="45"></a>
-                    </div>
-                    <div class="ml-2">
-                    <a href="profile.html?id=${USER_ID}"><div class="color-text profile-link h5 m-0">${user.name}</div></a>
-                        <div class="h7 text-muted">${user.status ? user.status : ""}</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="dropdown">
-                        <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="color-icons fa fa-ellipsis-h"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
-                            <a class="dropdown-item" data-toggle="modal" data-edit-id="${key}" data-target="#modal-edit">Editar</a>
-                            <a class="dropdown-item" data-delete-id="${key}">Excluir</a>
-                        </div>
-                    </div>
-                </div>
+    <div class="card gedf-card marg" data-div="${key}" data-filter="${visibility}">
+      <header class="card-header">
+        <section class="d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <div class="mr-2">
+              <a href="profile.html?id=${USER_ID}"><img class="profile-link rounded-circle profile-pic-posts"
+                  width="45" /></a>
             </div>
-        </div>
-    
-        <div class="card-body">
-            <div class="text-muted h7 mb-2">${date}</div>
-    
-            <p class="card-text" data-text-id="${key}">
-                ${message}
-            </p>
-        </div>
-        <div class="card-footer">
-            <span class="color-icons likes-counter" id="likes-counter" data-counter-id="${key}">${likes}</span>
-            <a href="#" class="color-icons card-link" id="btn-like" data-like-id="${key}"><i class="fa fa-gittip"></i> <span data-text-like="${key}">Curtir</span></a>
-            <a href="#" class="color-icons card-link"><i class="fa fa-comment"></i> Comentar</a>
-            <a href="#" class="color-icons card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
-        </div>
-    </div>`);
+            <div class="ml-2">
+              <a href="profile.html?id=${USER_ID}">
+                <div class="color-text profile-link h5 m-0">
+                  ${user.name}
+                </div>
+              </a>
+              <div class="h7 text-muted">${user.status ? user.status : ""}</div>
+            </div>
+          </div>
+          <nav class="dropdown">
+            <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="color-icons fa fa-ellipsis-h"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+              <a class="dropdown-item" data-toggle="modal" data-edit-id="${key}" data-target="#modal-edit">Editar</a>
+              <a class="dropdown-item" data-delete-id="${key}">Excluir</a>
+            </div>
+          </nav>
+        </section>
+      </header>
+
+      <section class="card-body">
+        <div class="text-muted h7 mb-2">${date}</div>
+        <p class="card-text" data-text-id="${key}">
+          ${message}
+        </p>
+      </section>
+      
+      <footer class="card-footer">
+        <span class="color-icons likes-counter" id="likes-counter" data-counter-id="${key}">${likes}</span>
+        <a href="#" class="color-icons card-link" id="btn-like" data-like-id="${key}"><i class="fa fa-gittip"></i>
+          <span data-text-like="${key}">Curtir</span></a>
+        <a href="#" class="color-icons card-link"><i class="fa fa-comment"></i> Comentar</a>
+        <a href="#" class="color-icons card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
+      </footer>
+    </div>
+    `);
 
     $('.profile-pic-posts').attr('src', user.pic);
 
