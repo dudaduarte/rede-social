@@ -43,10 +43,6 @@ a:hover {
   flex-direction: column-reverse;
 }
 
-.btn-circle {
-  border-radius: 50%;
-}
-
 .bg-purple {
   background-color: #984BDC;
 }
@@ -146,36 +142,12 @@ span i.fas, span i.far {
   padding: 0.2rem;
 }
 
-button.btn-xl {
-  width: 60px;
-  height: 60px;
-  border-radius: 35px;
-  line-height: 1.33;
-  background-color: #FFD234;
-  color: #984BDC;
-  border: 5px solid #984BDC;
-  transform: scale(1.3);
-  margin: -25px 0 12px;
-}
-
 .card-foruns {
   padding: 10px;
   background-color: #FFD234;
   border-radius: 10px;
   color: white;
   margin: 15px 0;
-}
-
-.fa-plus, .fa-minus {
-  font-size: 30px;
-}
-
-.fa-plus:hover, .fa-minus:hover {
-  color: #D12D90;
-}
-
-.fa-plus:active, .fa-minus:active {
-  color: #D12D90;
 }
 
 .btn-feed {
@@ -194,17 +166,8 @@ button.btn-xl {
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.btn-circle {
-  border-radius: 50%;
-}
-
 .btn-30rem {
   border-radius: .25rem;
-}
-
-.btn-search {
-  background-color: #FFD234;
-  color: #984BDC;
 }
 
 .btn-share {
@@ -313,9 +276,9 @@ button.btn-xl {
   color: #984BDC;
 }
 
-.icons-card {
-  width: 15%;
-  margin: 0.7rem;
+a.disabled {
+  pointer-events: none;
+  cursor: default;
 }
 
 .icons-card {
@@ -323,12 +286,63 @@ button.btn-xl {
   margin: 0.7rem;
 }
 
-@media (max-width: 480px) {
+.icons-card {
+  width: 15%;
+  margin: 0.7rem;
+}
+
+.btn-circle {
+  border-radius: 50%;
+}
+
+.fa-plus, .fa-minus {
+  font-size: 30px;
+}
+
+.fa-plus:hover, .fa-minus:hover {
+  color: #D12D90;
+}
+
+.fa-plus:active, .fa-minus:active {
+  color: #D12D90;
+}
+
+@media (max-width: 768px) {
   #card-left {
     display: none;
   }
 
   .container-button-textbox{
-    margin: 20px 0 0;
+    margin: 15px 0 0;
+  }
+
+  .btn-circle {
+    border-radius: 50%;
+  }
+
+  button.btn-xl {
+    width: 55px;
+    height: 55px;
+    border-radius: 35px;
+    line-height: 1.33;
+    background-color: #FFD234;
+    color: #984BDC;
+    border: 5px solid #984BDC;
+    transform: scale(1.3);
+    margin: -21px 0 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-button-textbox{
+    display: none;
+  }
+
+  .hidden {
+    display: block;
+  }
+
+  .container-button-textbox {
+    display: none !important;
   }
 }

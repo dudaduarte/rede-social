@@ -3,6 +3,7 @@ let USER_ID = window.location.search.match(/\?id=(.*)/)[1];
 
 $(document).ready(function () {
 
+  $("body").tooltip({ selector: '[data-toggle=tooltip]' });
   $('#logo-navbar, .home-navbar').attr('href', `feed.html?id=${USER_ID}`);
   $('#option-profile, #profile-pic-nav, .profile-navbar').attr('href', `profile.html?id=${USER_ID}`);
   $('#user-message').keyup(disableEnableButton);
@@ -28,16 +29,6 @@ $(document).ready(function () {
       })
     })
   })
-
-  $('#btn-search').click(function (e) {
-    e.preventDefault();
-    let input = $('#input-search');
-    if (input.hasClass('hidden')) {
-      input.removeClass('hidden');
-    } else {
-      input.addClass('hidden');
-    }
-  });
 
   function messagePost(date, message, user, visibility, key, likes) {
     $('#posts-container').append(`
@@ -77,13 +68,12 @@ $(document).ready(function () {
           ${message}
         </p>
       </section>
-      
+
       <footer class="card-footer">
         <span class="color-icons likes-counter" id="likes-counter" data-counter-id="${key}">${likes}</span>
         <a href="#" class="color-icons card-link" id="btn-like" data-like-id="${key}"><i class="fa fa-gittip"></i>
           <span data-text-like="${key}">Curtir</span></a>
-        <a href="#" class="color-icons card-link"><i class="fa fa-comment"></i> Comentar</a>
-        <a href="#" class="color-icons card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
+        <a href="#" class="color-icons card-link" data-toggle="tooltip" data-placement="right" title="Essa função ainda não está habilitada :)"><i class="fa fa-comment"></i> Comentar</a>
       </footer>
     </div>
     `);
