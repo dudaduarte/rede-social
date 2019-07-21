@@ -12,12 +12,19 @@ body {
   margin-bottom: 10px;
 }
 
+.row-container {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
 .main-secction {
   box-shadow: 10px 10px 10px #F1F1F1;
 }
 
 .image-section {
-  padding: 0px;
+  padding: 0px !important;
+  max-height: 15rem; 
 }
 
 .image-section img {
@@ -109,9 +116,8 @@ body {
   font-size: 12px;
 }
 
-.btn-contact {
-  background-color: #984BDC;
-  border-color: #984BDC;
+.width100 {
+  width: 100%;
 }
 
 .profile-tag {
