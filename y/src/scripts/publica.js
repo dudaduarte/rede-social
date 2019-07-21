@@ -1,37 +1,38 @@
-let database = firebase.database();
-let USER_ID = window.location.search.match(/\?id=(.*)/)[1];
-
-$(document).ready(function () {
-
-  $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-  $('#logo-navbar, .home-navbar').attr('href', `feed.html?id=${USER_ID}`);
-  $('#option-profile, #profile-pic-nav, .profile-navbar').attr('href', `profile.html?id=${USER_ID}`);
-  $('#user-message').keyup(disableEnableButton);
-  $('#btn-share').click(btnShare);
-  $('#btn-show-textbox').click(btnShowTextbox);
+$(document).ready(function() {
+  $("body").tooltip({ selector: "[data-toggle=tooltip]" });
+  $("#user-message").keyup(disableEnableButton);
+  $("#btn-share").click(btnShare);
+  $("#btn-show-textbox").click(btnShowTextbox);
   checkNumberPosts();
 
-  database.ref(`users/${USER_ID}`).on('value', function (snapshot) {
+  database.ref(`users/${USER_ID}`).on("value", function(snapshot) {
     let user = snapshot.val();
-    $('#navbar-dropdown').html(user.name);
-    $('#profile-pic-navbar').attr('src', user.pic);
-    database.ref(`posts/${USER_ID}`).once('value', function (snapshot) {
-      snapshot.forEach(function (childSnapshot) {
+    database.ref(`posts/${USER_ID}`).once("value", function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
         let childKey = childSnapshot.key;
         let childData = childSnapshot.val();
-        database.ref(`likes/${USER_ID}/${childKey}`).once('value', function (snapshot) {
-          let countLikes = 0;
-          if (snapshot.val()) {
-            countLikes = snapshot.val().countLikes;
-          }
-          messagePost(childData.date, childData.message, user, childData.visibility, childKey, countLikes)
-        })
-      })
-    })
-  })
+        database
+          .ref(`likes/${USER_ID}/${childKey}`)
+          .once("value", function(snapshot) {
+            let countLikes = 0;
+            if (snapshot.val()) {
+              countLikes = snapshot.val().countLikes;
+            }
+            messagePost(
+              childData.date,
+              childData.message,
+              user,
+              childData.visibility,
+              childKey,
+              countLikes
+            );
+          });
+      });
+    });
+  });
 
   function messagePost(date, message, user, visibility, key, likes) {
-    $('#posts-container').append(`
+    $("#posts-container").append(`
     <div class="card gedf-card marg" data-div="${key}" data-filter="${visibility}">
       <header class="card-header">
         <section class="d-flex justify-content-between align-items-center">
@@ -78,93 +79,104 @@ $(document).ready(function () {
     </div>
     `);
 
-    $('.profile-pic-posts').attr('src', user.pic);
+    $(".profile-pic-posts").attr("src", user.pic);
 
-    $(`a[data-like-id=${key}]`).click(function (e) {
+    $(`a[data-like-id=${key}]`).click(function(e) {
       e.preventDefault();
-      let currentKey = $(this).attr('data-like-id');
+      let currentKey = $(this).attr("data-like-id");
       let likesRef = `likes/${USER_ID}/${currentKey}`;
       let databaseLikesAddress = database.ref(`${likesRef}/users`);
       databaseLikesAddress.set({
-        uid: USER_ID
-      })
-      databaseLikesAddress.once('value', function (snapshot) {
+        uid: USER_ID,
+      });
+      databaseLikesAddress.once("value", function(snapshot) {
         let countLikes = snapshot.numChildren();
         database.ref(`${likesRef}`).update({
-          countLikes: countLikes
-        })
+          countLikes,
+        });
         $(`span[data-counter-id=${currentKey}]`).html(countLikes);
       });
-    })
+    });
 
-    $(`a[data-delete-id=${key}]`).click(function (e) {
+    $(`a[data-delete-id=${key}]`).click(function(e) {
       e.preventDefault();
       confirmRemove(key);
     });
 
-    $(`a[data-edit-id=${key}]`).click(function () {
-      $('#btn-send-modal').attr('data-send-id', key)
-      database.ref(`posts/${USER_ID}/${key}`).once('value', function (snapshot) {
-        $('#edit-post').val(snapshot.val().message);
-      })
-    })
+    $(`a[data-edit-id=${key}]`).click(function() {
+      $("#btn-send-modal").attr("data-send-id", key);
+      database.ref(`posts/${USER_ID}/${key}`).once("value", function(snapshot) {
+        $("#edit-post").val(snapshot.val().message);
+      });
+    });
 
-    $('#btn-send-modal').click(function () {
-      let currentKey = $(this).attr('data-send-id');
-      let newMessage = $('#edit-post').val();
-      database.ref(`posts/${USER_ID}/${currentKey}`).update({ 'message': newMessage });
-      $(this).attr('data-dismiss', 'modal')
+    $("#btn-send-modal").click(function() {
+      let currentKey = $(this).attr("data-send-id");
+      let newMessage = $("#edit-post").val();
+      database
+        .ref(`posts/${USER_ID}/${currentKey}`)
+        .update({ message: newMessage });
+      $(this).attr("data-dismiss", "modal");
       $(`p[data-text-id=${currentKey}]`).html(newMessage);
-    })
-
+    });
     checkNumberPosts();
-
   }
 
   function checkNumberPosts() {
-    if ($('#posts-container').children().length <= 1) {
-      $('#filter-posts').addClass('hidden').removeClass('d-flex');
-    } else if ($('#filter-posts').hasClass('hidden')) {
-      $('#filter-posts').removeClass('hidden').addClass('d-flex');
+    if ($("#posts-container").children().length <= 1) {
+      $("#filter-posts")
+        .addClass("hidden")
+        .removeClass("d-flex");
+    } else if ($("#filter-posts").hasClass("hidden")) {
+      $("#filter-posts")
+        .removeClass("hidden")
+        .addClass("d-flex");
     }
   }
 
   function btnShowTextbox(e) {
     e.preventDefault();
 
-    if (!$('#textbox').hasClass('gedf-card')) {
-      $('#textbox').addClass('card gedf-card style-card');
-      $('#textbox').removeClass('hidden2');
-      $('#btn-show-textbox').html('<i class="fas fa-minus"></i>');
+    if (!$("#textbox").hasClass("gedf-card")) {
+      $("#textbox").addClass("card gedf-card style-card");
+      $("#textbox").removeClass("hidden2");
+      $("#btn-show-textbox").html('<i class="fas fa-minus"></i>');
     } else {
-      $('#textbox').removeClass('card gedf-card style-card');
-      $('#textbox').addClass('hidden2');
-      $('#btn-show-textbox').html('<i class="fas fa-plus"></i>');
+      $("#textbox").removeClass("card gedf-card style-card");
+      $("#textbox").addClass("hidden2");
+      $("#btn-show-textbox").html('<i class="fas fa-plus"></i>');
     }
   }
 
   function btnShare(e) {
     e.preventDefault();
-    let userText = $('#user-message').val();
+    let userText = $("#user-message").val();
     let dataPost = hourDate();
-    let messageVisibility = 'public';
-    if ($('#btnMessageVisibility').attr('data-filter') === 'private') {
-      messageVisibility = 'private';
+    let messageVisibility = "public";
+    if ($("#btnMessageVisibility").attr("data-filter") === "private") {
+      messageVisibility = "private";
     }
 
-    $('#user-message').val('');
+    $("#user-message").val("");
 
     let postFromDB = database.ref(`posts/${USER_ID}`).push({
       message: userText,
       date: dataPost,
-      visibility: messageVisibility
+      visibility: messageVisibility,
     });
 
-    database.ref(`users/${USER_ID}`).once('value', function (snapshot) {
+    database.ref(`users/${USER_ID}`).once("value", function(snapshot) {
       let user = snapshot.val();
-      messagePost(hourDate(), userText, user, messageVisibility, postFromDB.key, 0)
+      messagePost(
+        hourDate(),
+        userText,
+        user,
+        messageVisibility,
+        postFromDB.key,
+        0
+      );
     });
-    checkNumberPosts()
+    checkNumberPosts();
   }
 
   function confirmRemove(key) {
@@ -173,27 +185,31 @@ $(document).ready(function () {
       message: "Se a exclusão for confirmada, não poderá ser desfeita.",
       buttons: {
         cancel: {
-          label: '<i class="fa fa-times"></i> Cancelar'
+          label: '<i class="fa fa-times"></i> Cancelar',
         },
         confirm: {
-          label: '<i class="fa fa-check"></i> Confirmar'
-        }
+          label: '<i class="fa fa-check"></i> Confirmar',
+        },
       },
-      callback: function (result) {
+      callback: function(result) {
         if (result) {
           $(`div[data-div=${key}]`).remove();
-          database.ref('posts/' + USER_ID + "/" + key).remove();
+          database.ref("posts/" + USER_ID + "/" + key).remove();
           checkNumberPosts();
         }
-      }
+      },
     });
   }
 
   function disableEnableButton() {
-    if ($('#user-message').val().match(/\S+/)) {
-      $('#btn-share').prop('disabled', false);
+    if (
+      $("#user-message")
+        .val()
+        .match(/\S+/)
+    ) {
+      $("#btn-share").prop("disabled", false);
     } else {
-      $('#btn-share').prop('disabled', true);
+      $("#btn-share").prop("disabled", true);
     }
   }
 
@@ -211,30 +227,37 @@ $(document).ready(function () {
     let yearPost = datePost.getFullYear();
     let hourPost = datePost.getHours().toString();
     let minutesPost = datePost.getMinutes().toString();
-    let hourMinutePost = `${checkNumberDate(dayPost)}/${checkNumberDate(monthPost)}/${yearPost} <i class="fa fa-clock-o"></i> ${checkNumberDate(hourPost)}h${checkNumberDate(minutesPost)}`;
+    let hourMinutePost = `${checkNumberDate(dayPost)}/${checkNumberDate(
+      monthPost
+    )}/${yearPost} <i class="fa fa-clock-o"></i> ${checkNumberDate(
+      hourPost
+    )}h${checkNumberDate(minutesPost)}`;
     return hourMinutePost;
   }
 
-  $('#btnMessageVisibility > a').on('click', function () {
-    var visibility = $(this).attr('data-filter');
+  $("#btnMessageVisibility > a").on("click", function() {
+    var visibility = $(this).attr("data-filter");
 
-    $('#btnGroupDrop1 > i').removeClass('fa-globe');
-    $('#btnGroupDrop1 > i').removeClass('fa-users');
-    if (visibility === 'public') {
-      $('#btnGroupDrop1 > i').addClass('fa-globe');
+    $("#btnGroupDrop1 > i").removeClass("fa-globe");
+    $("#btnGroupDrop1 > i").removeClass("fa-users");
+    if (visibility === "public") {
+      $("#btnGroupDrop1 > i").addClass("fa-globe");
     } else {
-      $('#btnGroupDrop1 > i').addClass('fa-users');
+      $("#btnGroupDrop1 > i").addClass("fa-users");
     }
 
-    $('#btnMessageVisibility').attr('data-filter', visibility);
+    $("#btnMessageVisibility").attr("data-filter", visibility);
   });
 
-  $('#btnFilterVisibility > a').on('click', function () {
-    var visibility = $(this).attr('data-filter');
+  $("#btnFilterVisibility > a").on("click", function() {
+    var visibility = $(this).attr("data-filter");
 
-    $('#posts-container > div').each(function () {
-      if ($(this).attr('data-filter')) {
-        if (visibility === 'all' || $(this).attr('data-filter') === visibility) {
+    $("#posts-container > div").each(function() {
+      if ($(this).attr("data-filter")) {
+        if (
+          visibility === "all" ||
+          $(this).attr("data-filter") === visibility
+        ) {
           $(this).show();
         } else {
           $(this).hide();
