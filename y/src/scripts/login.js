@@ -15,7 +15,6 @@ $(document).ready(function () {
       $(this).addClass('active');
       e.preventDefault();
     });
-
   });
 
   $('#login-submit').click(login);
@@ -47,7 +46,6 @@ $(document).ready(function () {
 
   function createUser(e) {
     e.preventDefault();
-
 
     let newUserName = $('#name').val();
     let newUserDate = $('#age').val();
@@ -81,15 +79,11 @@ $(document).ready(function () {
     }
   }
 
-  const authGoogleButton = $('#authGoogleButton')
-
   $('#authGoogleButton').click(function (event) {
     event.preventDefault();
     const provider = new firebase.auth.GoogleAuthProvider();
     signIn(provider);
   });
-
-  const authFacebookButton = $("#authFacebookButton")
 
   $('#authFacebookButton').click(function (event) {
     event.preventDefault();
