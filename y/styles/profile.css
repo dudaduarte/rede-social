@@ -47,6 +47,10 @@ body {
   height: 100px;
 }
 
+.style-status {
+  margin: 7px 0 12px;
+}
+
 .user-profil-part {
   padding-bottom: 30px;
   background-color: #FAFAFA;

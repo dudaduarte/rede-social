@@ -31,12 +31,11 @@
   <header class="header">
     <nav class="navbar-style d-flex justify-content-center navbar navbar-expand-lg navbar-dark bg-purple">
       <a id="logo-navbar" class="navbar-brand" href="#"><img src="./images/logo-text.svg" class='style-logo-feed'></a>
-      <button class="navbar-toggler brand-size" type="button" data-toggle="collapse"
-        data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
-        aria-label="Alterna navegação">
+      <button class="navbar-toggler brand-size" type="button" data-toggle="collapse" data-target="#conteudo-navbar"
+        aria-controls="conteudo-navbar" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="justify-content-end collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <div class="justify-content-end collapse navbar-collapse" id="conteudo-navbar">
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbar-dropdown" role="button" data-toggle="dropdown"
@@ -82,23 +81,23 @@
             <p id="user-bio" class="bio-style"></p>
             <button id="btn-contact" (click)="clearModal()" data-toggle="modal" data-target="#contact"
               class="btn btn-success btn-block follow">
-              Contato
+              Enviar Mensagem
             </button>
-            <button class="btn btn-warning btn-block">Interesses</button>
+            <button class="btn btn-warning btn-block" data-toggle="tooltip" data-placement="bottom"
+              title="Essa função ainda não está habilitada :)">Adicionar à Rede</button>
           </div>
         </section>
         <section class="col-md-9 col-sm-9 col-xs-12 profile-right-section width100">
           <div class="col-md-12 profile-header d-flex flex-wrap flex-row">
             <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
               <h1 id="display-name"></h1>
-              <h6 id="display-status"></h6>
+              <h6 id="display-status" class="style-status"></h6>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
-              <button href="#profile" class="color-btn btn btn-primary btn-block">Adicionar à
-                Rede</button>
+              <button href="#profile" class="color-btn btn btn-primary btn-block">Editar Perfil</button>
             </div>
           </div>
-          <div class="col-md-8 flex-column">
+          <div class="col-md-12 flex-column">
             <ul class="nav nav-tabs" role="tablist">
               <li class="nav-item">
                 <a class="profile-link color-text nav-link active" href="#profile" id="profile-navbar" role="tab"
@@ -113,20 +112,20 @@
             <div class="tab-content">
               <section role="tabpanel" class="tab-pane fade show active" id="profile">
                 <div class="row">
-                  <label class="col-md-2">Nome</label>
-                  <p id="display-name-small" class="col-md-8"></p>
+                  <label class="col-md-1">Nome</label>
+                  <p id="display-name-small" class="col-md-7"></p>
                 </div>
                 <div class="row">
-                  <label class="col-md-2">Email</label>
-                  <p id="display-email" class="col-md-8"></p>
+                  <label class="col-md-1">Email</label>
+                  <p id="display-email" class="col-md-7"></p>
                 </div>
                 <div class="row">
-                  <label class="col-md-2">Celular</label>
-                  <p id="display-pnumber" class="col-md-8"></p>
+                  <label class="col-md-1">Celular</label>
+                  <p id="display-pnumber" class="col-md-7"></p>
                 </div>
                 <div class="row">
-                  <label class="col-md-2">Escola</label>
-                  <p id="display-school" class="col-md-8"></p>
+                  <label class="col-md-1">Escola</label>
+                  <p id="display-school" class="col-md-7"></p>
                 </div>
               </section>
               <section role="tabpanel" class="tab-pane fade" id="cursos">
