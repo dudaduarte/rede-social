@@ -79,31 +79,6 @@ $(document).ready(function () {
     }
   }
 
-  $('#authGoogleButton').click(function (event) {
-    event.preventDefault();
-    const provider = new firebase.auth.GoogleAuthProvider();
-    signIn(provider);
-  });
-
-  $('#authFacebookButton').click(function (event) {
-    event.preventDefault();
-    const provider = new firebase.auth.FacebookAuthProvider();
-    signIn(provider);
-  });
-
-  function signIn(provider) {
-    firebase.auth()
-      .signInWithPopup(provider)
-      .then(function (result) {
-        let token = result.credential.accessToken;
-        let user = result.user;
-        window.location = `presentation.html?id=${user.uid}`;
-      }).catch(function (error) {
-        bootbox.alert('Falha na autenticação');
-      });
-
-  }
-
   function logout() {
     firebase.auth()
       .signOut()
