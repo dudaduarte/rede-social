@@ -5,9 +5,9 @@ $(document).ready(function() {
   $("#btn-show-textbox").click(btnShowTextbox);
   checkNumberPosts();
 
-  database.ref(`users/${USER_ID}`).on("value", function(snapshot) {
+  database.ref(`users/${USER_ID}`).on("value", snapshot => {
     let user = snapshot.val();
-    database.ref(`posts/${USER_ID}`).once("value", function(snapshot) {
+    database.ref(`posts/${USER_ID}`).once("value", snapshot => {
       snapshot.forEach(function(childSnapshot) {
         let childKey = childSnapshot.key;
         let childData = childSnapshot.val();
@@ -74,7 +74,7 @@ $(document).ready(function() {
         <span class="color-icons likes-counter" id="likes-counter" data-counter-id="${key}">${likes}</span>
         <a href="#" class="color-icons card-link" id="btn-like" data-like-id="${key}"><i class="fa fa-gittip"></i>
           <span data-text-like="${key}">Curtir</span></a>
-        <a href="#" class="color-icons card-link" data-toggle="tooltip" data-placement="right" title="Essa função ainda não está habilitada :)"><i class="fa fa-comment"></i> Comentar</a>
+        <a href="#" class="color-icons card-link" data-toggle="tooltip" data-placement="bottom" title="Essa função ainda não está habilitada :)"><i class="fa fa-comment"></i> Comentar</a>
       </footer>
     </div>
     `);

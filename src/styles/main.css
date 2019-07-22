@@ -315,19 +315,15 @@ a.disabled {
   #card-left {
     display: none;
   }
-
-  .container-button-textbox{
+  .container-button-textbox {
     margin: 15px 0 0;
   }
-
   .navbar-brand {
     margin-left: auto;
   }
-
   .navbar-toggler {
     margin-left: auto;
   }
-
   button.btn-xl {
     width: 55px;
     height: 55px;
@@ -342,14 +338,12 @@ a.disabled {
 }
 
 @media (min-width: 768px) {
-  .container-button-textbox{
+  .container-button-textbox {
     display: none;
   }
-
   .hidden {
     display: block;
   }
-
   .container-button-textbox {
     display: none !important;
   }
