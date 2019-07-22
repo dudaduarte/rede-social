@@ -1,8 +1,8 @@
 # Rede-Social
 
-Nome do projeto - Rede Social ConnectVest
-
 Título do projeto - ConnectVest
+
+Link para a navegação na primeira versão da aplicação: https://conectvest.firebaseapp.com/index.html
 
 O projeto – ConnectVest surge para contribuir com a integração entre estudantes que pretendem prestar o Exame Nacional do Ensino Médio – ENEM.
    
