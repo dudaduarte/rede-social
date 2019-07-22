@@ -81,8 +81,8 @@ $(document).ready(function() {
 
     $(".profile-pic-posts").attr("src", user.pic);
 
-    $(`a[data-like-id=${key}]`).click(function(e) {
-      e.preventDefault();
+    $(`a[data-like-id=${key}]`).click(function(event) {
+      event.preventDefault();
       let currentKey = $(this).attr("data-like-id");
       let likesRef = `likes/${USER_ID}/${currentKey}`;
       let databaseLikesAddress = database.ref(`${likesRef}/users`);
@@ -98,8 +98,8 @@ $(document).ready(function() {
       });
     });
 
-    $(`a[data-delete-id=${key}]`).click(function(e) {
-      e.preventDefault();
+    $(`a[data-delete-id=${key}]`).click(function(event) {
+      event.preventDefault();
       confirmRemove(key);
     });
 
@@ -134,9 +134,8 @@ $(document).ready(function() {
     }
   }
 
-  function btnShowTextbox(e) {
-    e.preventDefault();
-
+  function btnShowTextbox(event) {
+    event.preventDefault();
     if (!$("#textbox").hasClass("gedf-card")) {
       $("#textbox").addClass("card gedf-card style-card");
       $("#textbox").removeClass("hidden");
@@ -148,8 +147,8 @@ $(document).ready(function() {
     }
   }
 
-  function btnShare(e) {
-    e.preventDefault();
+  function btnShare(event) {
+    event.preventDefault();
     let userText = $("#user-message").val();
     let dataPost = hourDate();
     let messageVisibility = "public";

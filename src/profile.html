@@ -75,6 +75,7 @@
           </div>
           <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
             <p id="user-bio" class="bio-style"></p>
+            <textarea type="text" class="form-control hidden textarea-bio" rows="7" id="edit-bio" placeholder="Escreva um pouco sobre você."></textarea>
           </div>
         </section>
         <section class="col-md-9 col-sm-9 col-xs-12 profile-right-section width100">
@@ -82,12 +83,13 @@
             <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
               <h1 id="display-name"></h1>
               <h6 id="display-status" class="style-status"></h6>
+              <input type="text" class="form-control hidden col-md-6 input-edit-profile" id="edit-status" placeholder="Definir Status">
             </div>
             <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
-              <button href="#profile" class="color-btn btn btn-primary btn-block">Editar Perfil</button>
+              <button class="color-btn btn btn-primary btn-block" id="edit-profile">Editar Perfil</button>
             </div>
           </div>
-          <div class="col-md-12 flex-column">
+          <div class="col-md-12 flex-column paragraph-profile">
             <ul class="nav nav-tabs" role="tablist">
               <li class="nav-item">
                 <a class="profile-link color-text nav-link active" href="#profile" id="profile-navbar" role="tab"
@@ -97,21 +99,24 @@
             </ul>
             <div class="tab-content">
               <section role="tabpanel" class="tab-pane fade show active" id="profile">
-                <div class="row">
-                  <label class="col-md-1">Nome</label>
-                  <p id="display-name-small" class="col-md-7"></p>
+                <div class="row align-items-center">
+                  <h6 class="col-md-1">Nome</h6>
+                  <p id="display-name-small" class="col-md-7 paragraph-profile"></p>
+                  <input type="text" class="form-control hidden col-md-6 input-edit-profile" id="edit-name">
                 </div>
-                <div class="row">
-                  <label class="col-md-1">Email</label>
-                  <p id="display-email" class="col-md-7"></p>
+                <div class="row align-items-center">
+                  <h6 class="col-md-1">Email</h6>
+                  <p id="display-email" class="col-md-7 paragraph-profile"></p>
                 </div>
-                <div class="row">
-                  <label class="col-md-1">Celular</label>
-                  <p id="display-pnumber" class="col-md-7"></p>
+                <div class="row align-items-center">
+                  <h6 class="col-md-1">Celular</h6>
+                  <p id="display-pnumber" class="col-md-7 paragraph-profile"></p>
+                  <input type="tel" class="form-control hidden col-md-6 input-edit-profile" id="edit-tel">
                 </div>
-                <div class="row">
-                  <label class="col-md-1">Escola</label>
-                  <p id="display-school" class="col-md-7"></p>
+                <div class="row align-items-center">
+                  <h6 class="col-md-1">Escola</h6>
+                  <p id="display-school" class="col-md-7 paragraph-profile"></p>
+                  <input type="text" class="form-control hidden col-md-6 input-edit-profile" id="edit-school">
                 </div>
               </section>
             </div>

@@ -248,6 +248,10 @@ span i.fas, span i.far {
 }
 
 .hidden {
+  display: none !important;
+}
+
+.hidden-textbox {
   display: none;
 }
 
@@ -341,7 +345,7 @@ a.disabled {
   .container-button-textbox {
     display: none;
   }
-  .hidden {
+  .hidden-textbox {
     display: block;
   }
   .container-button-textbox {

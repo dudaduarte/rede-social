@@ -175,6 +175,19 @@ body {
   margin: 0px;
 }
 
+.paragraph-profile {
+  margin-top: 0.5rem;
+}
+
+.textarea-bio {
+  resize: none;
+  margin: 5px;
+}
+
+.input-edit-profile {
+  margin: 5px;
+}
+
 .image-right-detail-section2 span {
   color: #7F7F7F;
 }
